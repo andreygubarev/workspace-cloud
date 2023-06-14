@@ -1,0 +1,23 @@
+ansible_host: ENC[AES256_GCM,data:Wm3x5mYBo0ZT43jcxaU1,iv:oRxz22Oz+vsu6UUXo0HUkw29B9v8Bq2C40vP5ol94T0=,tag:d5XldEpEBsv/Ek+/my4AYQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-14T23:31:48Z"
+    mac: ENC[AES256_GCM,data:mN/r9YJVYKpap3qJ9qjTKbZPKJuHQ4T5d8XEquOwL9kQQfCBB8PKDRTef1VK8rAGnSMwuiy3nadDLr9YDe36rUWFnKclV1oAjyoPkSXo/jOmYN0sQT8Xa4d9UMS+dq0LBo44/5RunG1rDGQyvtezzm/L/wId3ItdXCeFf2aTHKA=,iv:+AVejXemgcNH9sC9hcoLSXK/cC4pBODkuHtwMelX3uI=,tag:Sxd0ExMW8aqcgs6lR3rA7Q==,type:str]
+    pgp:
+        - created_at: "2023-06-14T23:26:08Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdAJVN9QSv3oSn3F9vfDcm3kEIMqBfBU3gHBVlaw5o422sw
+            wmAgsZ/itl7x+F4ZMotkViH2Y8VYY3/WFHnpEtyfLuK1EE27NGLIJ5yEURdTPz/j
+            0lwB+3BrcJ2FbTcIW0ef7ZWLmRs5bB6rag2f4x1K9ScTFcOTUGKvp81dBLWOmJ8L
+            oPLjpQ8+PU+mEJbRM73nq2C2JhwPTkJXOFmKxLAgY/9WL2dclsz7uGzAjaRUiA==
+            =4U6n
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
