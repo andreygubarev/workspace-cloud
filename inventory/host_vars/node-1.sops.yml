@@ -1,12 +1,13 @@
 ansible_host: ENC[AES256_GCM,data:Wm3x5mYBo0ZT43jcxaU1,iv:oRxz22Oz+vsu6UUXo0HUkw29B9v8Bq2C40vP5ol94T0=,tag:d5XldEpEBsv/Ek+/my4AYQ==,type:str]
+ansible_user: ENC[AES256_GCM,data:03fmfw==,iv:nfJViAHGXOrWXgjcqi+17YaYmlDleSYjyF2er/I+8Cg=,tag:c7XCB+M3sXlsEhfMdBtn3A==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-14T23:31:48Z"
-    mac: ENC[AES256_GCM,data:mN/r9YJVYKpap3qJ9qjTKbZPKJuHQ4T5d8XEquOwL9kQQfCBB8PKDRTef1VK8rAGnSMwuiy3nadDLr9YDe36rUWFnKclV1oAjyoPkSXo/jOmYN0sQT8Xa4d9UMS+dq0LBo44/5RunG1rDGQyvtezzm/L/wId3ItdXCeFf2aTHKA=,iv:+AVejXemgcNH9sC9hcoLSXK/cC4pBODkuHtwMelX3uI=,tag:Sxd0ExMW8aqcgs6lR3rA7Q==,type:str]
+    lastmodified: "2023-06-14T23:38:27Z"
+    mac: ENC[AES256_GCM,data:VcN2TTBwsaJMTemfUrkfJFlSBd1X018Lgv7d8crpoKhLNDPO/AZwv45PK8AUjbudBMYFt/mcrhAUJEg5fev9aQS7rSc2AOFX4WREtVDacHqxYtu0h1BLcsawml8DFJplDpufK7pAsI0EadK4STY9yySHaNqOfmQmgjGRTOtmzV0=,iv:Tlac7gcqg8NEcy7tjTIHJJc7+sAFThRpFsmISZQKy0o=,tag:OTlUhuL84vBVTmE8SrsTvA==,type:str]
     pgp:
         - created_at: "2023-06-14T23:26:08Z"
           enc: |
