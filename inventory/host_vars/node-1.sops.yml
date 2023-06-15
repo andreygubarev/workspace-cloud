@@ -4,14 +4,15 @@ root_filesystem_device: ENC[AES256_GCM,data:usczUSwu1Og=,iv:ylqVLLDG4Qk25KT3lU5B
 root_filesystem_partition: ENC[AES256_GCM,data:odZOdPIyEl7U,iv:xlNviC4Rn/ZNn4IpCVQvkid/KOro4nmQHtXSaVKly4s=,tag:SS/RHI8K3DnIqBUDj4G3rQ==,type:str]
 root_filesystem_size: ENC[AES256_GCM,data:cGA=,iv:VCUW4sPu66GQEPcdkH6dxwd0o35U28Xtwy2m7kwPeXE=,tag:/aDFcsdnIMd/NpCKO+pmOA==,type:str]
 allocate_freespace_device: ENC[AES256_GCM,data:rxV5KNRL3N4=,iv:9H2hV2s7JwLpqjkzaP26EVSgyieB0MCfl/BLbHxq8rY=,tag:yOlZ6RsX62uQPFti6w40VQ==,type:str]
+lvm_physical_volume: ENC[AES256_GCM,data:clMmOTntxmDk,iv:sqRs78NVPXB/IXOOlLXAkM0sfFUmoMG55AVjnHreTQI=,tag:DJ/guS1XG0awEGI6jTRsAQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-15T12:22:44Z"
-    mac: ENC[AES256_GCM,data:kddi81WOotCoCnpY7PBathOn0A7KzDbqougqTCAsB/vyk7sPQcqaoHp/4Ncidir41n/TV1SzKuItu9zDMJLBkTE/DWUUeQJx1HtWtZ5/BolyQKa0E4fVjiszUtBQ7Jrdxj8zW6DPCmIDNSInHSZg89Nbj86YSME1NdvNxAMEOSI=,iv:YRn2cZlVjqcekKMaoPzvojAEJFWCzG7r62xxZZB0CQk=,tag:W0CfYKFU4XJFQ5Z4uPf1IA==,type:str]
+    lastmodified: "2023-06-15T13:26:56Z"
+    mac: ENC[AES256_GCM,data:XE7yOlpRmg97X+855Jg4h7SM5J+wAUU/MTuXreBJSdshoPft1IPgIWqTFpzXsjKekHDL/2hgQtT188KRdvoY/WCTvEbxtpNTkxYKCdqKeFzxO9MUs4HaWkuO0kMvRp6kFsoYy30GHaHlVyMSVr7H1if+vC8hkygCqfkK8eG5MN0=,iv:OneL7xp6E7Uh3nkBNZY/YxoeztUSCRk4EidIYbMyf5k=,tag:1+cOdZfGpvAmrlq9lWGzWw==,type:str]
     pgp:
         - created_at: "2023-06-14T23:26:08Z"
           enc: |
