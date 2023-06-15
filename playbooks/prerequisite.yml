@@ -3,3 +3,4 @@
   hosts: prerequisite
   roles:
     - role: andreygubarev.debian.root_filesystem
+    - role: andreygubarev.debian.allocate_freespace
