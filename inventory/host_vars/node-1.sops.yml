@@ -1,13 +1,16 @@
 ansible_host: ENC[AES256_GCM,data:kS6uxDQiBP8bIkQb,iv:Oko2T71UYYZgu4gnLVrVh3BIPEqwNAVQsReLux+Cld0=,tag:jQB6qs80uY/QQR6hulD9jg==,type:str]
 ansible_user: ENC[AES256_GCM,data:03fmfw==,iv:nfJViAHGXOrWXgjcqi+17YaYmlDleSYjyF2er/I+8Cg=,tag:c7XCB+M3sXlsEhfMdBtn3A==,type:str]
+root_filesystem_device: ENC[AES256_GCM,data:usczUSwu1Og=,iv:ylqVLLDG4Qk25KT3lU5B2UMEY4Tlvtx96h3y1qpMer0=,tag:hIjKKaphzU1cuUdoDosOBw==,type:str]
+root_filesystem_partition: ENC[AES256_GCM,data:odZOdPIyEl7U,iv:xlNviC4Rn/ZNn4IpCVQvkid/KOro4nmQHtXSaVKly4s=,tag:SS/RHI8K3DnIqBUDj4G3rQ==,type:str]
+root_filesystem_size: ENC[AES256_GCM,data:cGA=,iv:VCUW4sPu66GQEPcdkH6dxwd0o35U28Xtwy2m7kwPeXE=,tag:/aDFcsdnIMd/NpCKO+pmOA==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-15T08:16:01Z"
-    mac: ENC[AES256_GCM,data:OKbCN8WghHSb5ow+n/b99iNyvMzqPWr5pXp1lY8yMmZnQ1qjuAyEonab9kixAsJjfqQ+PbGWYbuHU/7rWCOXWF8uzkTrm2jV9QCdqQsbArH9nEcIzu35jQea4uMUb6stqJOdAxVb/S1jsenVuzYYyATxG9UH3Z4ja/XC9In6lHk=,iv:CzvDxPpTzHfyYMx3AHuYLRFBFaxu9IzZxbCEA7HnNpA=,tag:RbzQLfe94vbuEPtkxUbTyA==,type:str]
+    lastmodified: "2023-06-15T09:01:22Z"
+    mac: ENC[AES256_GCM,data:Kio+M6WTjGQrGQWwqUpLy5J/UdaSO9AE0F8uVDfmDVsRn/+pejx8QKkKNa5nqVtoGcKryNl3Q5/7VboGQqwi6jNuLpZfOTus8Igwy2Ci0E8ixUVfFzi3Qqilc+0Gxk7cq9cqWPPnD7zj5n6ZQ7SYWcSMuIbw/z8+qCX4C5P8YpU=,iv:g5zRDnJy3/7zPzAGVWDV/vz0rHfLrOlVxUAwZ1DjG2U=,tag:UEPHzgicJqKRO8i6EZd2Sg==,type:str]
     pgp:
         - created_at: "2023-06-14T23:26:08Z"
           enc: |
