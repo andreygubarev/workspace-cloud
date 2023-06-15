@@ -1,1 +1,8 @@
 ---
+- name: Update default partitions
+  hosts: all
+  roles:
+    - role: andreygubarev.debian.partition
+      partition_device: /dev/vda
+      partition_volume: /dev/vda1
+      partition_size: 8G
