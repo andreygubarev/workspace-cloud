@@ -3,5 +3,10 @@
   hosts: prerequisite
   roles:
     - role: andreygubarev.debian.root_filesystem
+      tags: [root_filesystem]
     - role: andreygubarev.debian.allocate_freespace
+      tags: [allocate_freespace]
     - role: andreygubarev.debian.lvm
+      tags: [lvm]
+    - role: andreygubarev.debian.luks
+      tags: [luks]
