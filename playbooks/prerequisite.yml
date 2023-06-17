@@ -8,5 +8,20 @@
       tags: [allocate_freespace]
     - role: andreygubarev.debian.lvm
       tags: [lvm]
+    - role: andreygubarev.debian.mountpoint
+      vars:
+        mountpoint_path: /var
+        mountpoint_volume: /dev/mapper/vg0-var
+      tags: [mountpoint]
+    - role: andreygubarev.debian.mountpoint
+      vars:
+        mountpoint_path: /tmp
+        mountpoint_volume: /dev/mapper/vg0-tmp
+      tags: [mountpoint]
+    - role: andreygubarev.debian.mountpoint
+      vars:
+        mountpoint_path: /home
+        mountpoint_volume: /dev/mapper/vg0-home
+      tags: [mountpoint]
     - role: andreygubarev.debian.luks
       tags: [luks]

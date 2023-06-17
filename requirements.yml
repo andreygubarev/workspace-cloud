@@ -4,4 +4,4 @@ collections:
     version: 1.6.0
 
   - name: andreygubarev.debian
-    version: 0.6.0
+    version: 0.8.0
