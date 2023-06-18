@@ -34,14 +34,14 @@
       ansible.builtin.include_role:
         name: andreygubarev.debian.lvm
       vars:
-        lvm_physical_volume: "{{ allocate_freespace_device }}2"
+        lvm_physical_volume: "{{ allocate_freespace_partition }}"
 
     - name: Setup mountpoints
       ansible.builtin.include_role:
         name: andreygubarev.debian.mountpoint
       vars:
         mountpoint_path: "/{{ item }}"
-        mountpoint_volume: "/dev/mapper/vg0-{{ item }}"
+        mountpoint_volume: "/dev/{{ lvm_volume_group }}/{{ item }}"
       loop:
         - home
         - tmp
@@ -51,4 +51,4 @@
       ansible.builtin.include_role:
         name: andreygubarev.debian.luks
       vars:
-        luks_device: "/dev/mapper/vg0-local"
+        luks_device: "/dev/{{ lvm_volume_group }}/local"
