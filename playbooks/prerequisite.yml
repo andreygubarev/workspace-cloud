@@ -36,20 +36,19 @@
       vars:
         lvm_physical_volume: "{{ allocate_freespace_device }}2"
 
-    # - role: andreygubarev.debian.mountpoint
-    #   vars:
-    #     mountpoint_path: /var
-    #     mountpoint_volume: /dev/mapper/vg0-var
-    #   tags: [mountpoint]
-    # - role: andreygubarev.debian.mountpoint
-    #   vars:
-    #     mountpoint_path: /tmp
-    #     mountpoint_volume: /dev/mapper/vg0-tmp
-    #   tags: [mountpoint]
-    # - role: andreygubarev.debian.mountpoint
-    #   vars:
-    #     mountpoint_path: /home
-    #     mountpoint_volume: /dev/mapper/vg0-home
-    #   tags: [mountpoint]
-    # - role: andreygubarev.debian.luks
-    #   tags: [luks]
+    - name: Setup mountpoints
+      ansible.builtin.include_role:
+        name: andreygubarev.debian.mountpoint
+      vars:
+        mountpoint_path: "/{{ item }}"
+        mountpoint_volume: "/dev/mapper/vg0-{{ item }}"
+      loop:
+        - home
+        - tmp
+        - var
+
+    - name: Setup LUKS
+      ansible.builtin.include_role:
+        name: andreygubarev.debian.luks
+      vars:
+        luks_device: "/dev/mapper/vg0-local"

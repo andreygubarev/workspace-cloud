@@ -10,7 +10,6 @@ lvm_logical_volumes:
       size: ENC[AES256_GCM,data:zcE=,iv:In0zeQ3PMFIha2sNFnyFAYlj7gy/SxHSvjmSk9syU04=,tag:prgTPcNFf+byWNFi8dgWmA==,type:str]
     - name: ENC[AES256_GCM,data:5cotziI=,iv:hAeaIMzvpvHM/0RuCysM66pRBBpn7cUz/A3HPE/lUq0=,tag:HBgA0hhaWXFSZJDX8dJ/mA==,type:str]
       size: ENC[AES256_GCM,data:JOwPzZwDGaM=,iv:tRPu9raskTH9l1Z7/KC5AW5SMjbDVkX3d9oDb+8Ji1E=,tag:vcW9v91q4rbZSAU743swXQ==,type:str]
-luks_device: ENC[AES256_GCM,data:lK89MY0HLD6VltH9ZrG2vbGaoAsD,iv:jaZTOaLzFpL4GqCj3bj3lHKHEXFug4gppcsV0zmgc+g=,tag:40wt90+iL91U38LRhfQJfA==,type:str]
 luks_volume_passphrase: ENC[AES256_GCM,data:Oi6vIFV7rW1I8EnUWT2NzNj4JPe3/MjhIDfaUkFWw5c=,iv:LGQObXboYwQSphHtYmfJw2xKfreeMub9h72TaDUWJgA=,tag:BtIIMCBvmaOKwDS4D0X7bw==,type:str]
 sops:
     kms: []
@@ -18,8 +17,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-18T01:29:49Z"
-    mac: ENC[AES256_GCM,data:NJDchAeygCD2oB5xbBjfhQkX0HpLuMxCoeFWI6XikBaFSdFecissNiRwu4eYyQKabaW7+NSweJdW1iRSH8w7HxACacsOsJnwZ9zct8qCSIJcXN4dljpkT4aDQyx9w0OIQ4S6amGKhUhWU9nkl/Rw1ShMyi1xzUF+ukRg9gC/C/A=,iv:NGBVwBKMCX6RFv0FT8eQW17KqfxYr8w7IfTZxB/uyyM=,tag:7BfTep1I/onplfR/APYAzw==,type:str]
+    lastmodified: "2023-06-18T01:49:03Z"
+    mac: ENC[AES256_GCM,data:Fn6n+UmRx+eV9C13GbJWg4lIWU8vQFkCR8HDQbZRkC+oN0EY7vZUUpmsPouayVheh3CsROvzgIzBA7De2unafoeApU0GSfQ/EGhbYgI2lsiVDhcFBOyVg2LgDJ3nAlAenyL00+deE9CVmOF4+csxO4rnmlGFozVHZL1UIRFTy3Y=,iv:hQnO2YVTew7LyhZ6IK8hYk16VxWPuz8jGSzQWhK8SKo=,tag:kGOOvruiXnI5O3KIwhIgXQ==,type:str]
     pgp:
         - created_at: "2023-06-17T23:33:56Z"
           enc: |
