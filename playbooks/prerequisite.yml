@@ -27,11 +27,15 @@
     - name: Allocate freespace
       ansible.builtin.include_role:
         name: andreygubarev.debian.allocate_freespace
+      vars:
+        allocate_freespace_device: "{{ root_filesystem_device }}"
 
-    # - role: andreygubarev.debian.allocate_freespace
-    #   tags: [allocate_freespace]
-    # - role: andreygubarev.debian.lvm
-    #   tags: [lvm]
+    - name: Setup LVM
+      ansible.builtin.include_role:
+        name: andreygubarev.debian.lvm
+      vars:
+        lvm_physical_volume: "{{ allocate_freespace_device }}2"
+
     # - role: andreygubarev.debian.mountpoint
     #   vars:
     #     mountpoint_path: /var

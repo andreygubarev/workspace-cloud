@@ -1,8 +1,6 @@
 ansible_host: ENC[AES256_GCM,data:0fHQysIO3ggP8SlDidE=,iv:ASHFcZCfMMaCFwd0Fm+XagSu0a2G/PV7uA+UVcWrSnc=,tag:5IfLaDiBueFZhzJFFNyP2A==,type:str]
 ansible_user: ENC[AES256_GCM,data:FXgzTg==,iv:9y229CsYhJregy69q0OSI5U7MprkCno7UaEa2944VbQ=,tag:8kQWfeVw9Fux1LxAzlgivw==,type:str]
 root_filesystem_size: ENC[AES256_GCM,data:jLQ=,iv:2h3kPBDQDnDCjiIwqeHAtm97W28EAF3TY562lLWXC2c=,tag:4OVv9zSJ2g/gzaIL+W9B7w==,type:str]
-allocate_freespace_device: ENC[AES256_GCM,data:szLFJ+0kmAQ=,iv:pFy7dzjR9eA8Xnb8P+qGdOgWZXS3QIi3MZTCX/renbk=,tag:EOhITnnl9BPZ+nCnh8p7+Q==,type:str]
-lvm_physical_volume: ENC[AES256_GCM,data:MK6THRFCbjuu,iv:5T6yBfIJ0AU6/6pNDSVDba/GXajz0Av0bbHp3z00ylA=,tag:sR5hmNGHg9I9zYLZml99xA==,type:str]
 lvm_logical_volumes:
     - name: ENC[AES256_GCM,data:dVdd,iv:y1n/JbAB+xrYzw1cK5b3MIzOwzjloPdvVHlUWlskDEs=,tag:312dnWn8sc6wtBskIs6HtQ==,type:str]
       size: ENC[AES256_GCM,data:Gtw=,iv:dYeb/OgczZmzE1KTkGdgRaAzvAgdXI9Fr3CuqV7PciM=,tag:vOvelkSyQ1JWyS2pI7c7qg==,type:str]
@@ -20,8 +18,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-18T01:23:27Z"
-    mac: ENC[AES256_GCM,data:Pp1xp6MIL0ZaaDREWz393GRag3rrMxi0wusC9qqKi4bXSaTzeNiwtbMJL9UbdhDfmCsB16rWBiiqOTiIr1c/MooS1OAjRdFYYypCji/PNGUCK+CRBjBZwYDDO2a4hdCS6aM65w20TifK4Bpqd5pfIcNKZgZev5EwHZISEc2Ljh4=,iv:D9Jef/9R1Orf5bcSPAYJPtNlqsPojQnUCk8SnPiRbN4=,tag:QcfZFp3p4L2hR4gEU76N9g==,type:str]
+    lastmodified: "2023-06-18T01:29:49Z"
+    mac: ENC[AES256_GCM,data:NJDchAeygCD2oB5xbBjfhQkX0HpLuMxCoeFWI6XikBaFSdFecissNiRwu4eYyQKabaW7+NSweJdW1iRSH8w7HxACacsOsJnwZ9zct8qCSIJcXN4dljpkT4aDQyx9w0OIQ4S6amGKhUhWU9nkl/Rw1ShMyi1xzUF+ukRg9gC/C/A=,iv:NGBVwBKMCX6RFv0FT8eQW17KqfxYr8w7IfTZxB/uyyM=,tag:7BfTep1I/onplfR/APYAzw==,type:str]
     pgp:
         - created_at: "2023-06-17T23:33:56Z"
           enc: |
