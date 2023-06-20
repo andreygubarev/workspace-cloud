@@ -14,3 +14,6 @@
         headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
         headscale_advertise_port: "{{ tor_hiddenservice_port }}"
 
+    - name: Print endpoint
+      ansible.builtin.debug:
+        msg: "http://{{ tor_hiddenservice_hostname }}"
