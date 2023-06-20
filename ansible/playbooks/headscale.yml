@@ -17,3 +17,34 @@
     - name: Print endpoint
       ansible.builtin.debug:
         msg: "http://{{ tor_hiddenservice_hostname }}"
+
+    - name: Create tailscale directory
+      ansible.builtin.file:
+        path: /mnt/local/tailscale
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Get auth key  # noqa: run-once[task]
+      ansible.builtin.shell: |
+        set -euo pipefail
+        headscale -c {{ headscale_confdir }}/config.yaml users create cluster || true
+        headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u cluster
+      args:
+        executable: /bin/bash
+      delegate_to: node-1
+      run_once: true
+      register: headscale_auth_key
+      changed_when: false
+
+    - name: Set auth key
+      ansible.builtin.set_fact:
+        tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
+      delegate_to: node-1
+
+    - name: Install tailscale
+      ansible.builtin.include_role:
+        name: andreygubarev.tailscale.tailscale
+      vars:
+        tailscale_login_server: http://localhost:8514
