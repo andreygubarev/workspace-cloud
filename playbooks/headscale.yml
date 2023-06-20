@@ -1,0 +1,16 @@
+---
+- name: Headscale
+  hosts: headscale
+  tasks:
+    - name: Install torproxy
+      ansible.builtin.include_role:
+        name: andreygubarev.proxy.tor
+
+    - name: Install headscale
+      ansible.builtin.include_role:
+        name: andreygubarev.tailscale.headscale
+      vars:
+        headscale_advertise_proto: http
+        headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
+        headscale_advertise_port: "{{ tor_hiddenservice_port }}"
+
