@@ -17,8 +17,14 @@
     - name: Set auth key
       ansible.builtin.set_fact:
         tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
-        tailscale_login_server: http://{{ hostvars[groups['headscale'][0]]['ansible_default_ipv4']['address'] }}:8514
       delegate_to: "{{ groups['headscale'][0] }}"
+
+- name: Tor Proxy
+  hosts: headscale:tailscale
+  tasks:
+    - name: Install torproxy
+      ansible.builtin.include_role:
+        name: andreygubarev.proxy.tor
 
 - name: Set auth tailscale
   hosts: tailscale
