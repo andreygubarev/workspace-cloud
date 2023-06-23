@@ -1,4 +1,30 @@
 ---
+- name: Setup Tor Proxy
+  hosts: headscale:tailscale
+  tasks:
+    - name: Install torproxy
+      ansible.builtin.include_role:
+        name: andreygubarev.proxy.tor
+
+- name: Setup Headscale
+  hosts: headscale
+  tasks:
+    - name: Install headscale
+      ansible.builtin.include_role:
+        name: andreygubarev.tailscale.headscale
+      vars:
+        headscale_advertise_proto: http
+        headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
+        headscale_advertise_port: "{{ tor_hiddenservice_port }}"
+
+    - name: Create tailscale directory
+      ansible.builtin.file:
+        path: /mnt/local/tailscale
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
 - name: Set auth key
   hosts: headscale:tailscale
   tasks:
@@ -19,14 +45,7 @@
         tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
       delegate_to: "{{ groups['headscale'][0] }}"
 
-- name: Tor Proxy
-  hosts: headscale:tailscale
-  tasks:
-    - name: Install torproxy
-      ansible.builtin.include_role:
-        name: andreygubarev.proxy.tor
-
-- name: Set auth tailscale
+- name: Setup Tailscale
   hosts: tailscale
   tasks:
     - name: Install tailscale
