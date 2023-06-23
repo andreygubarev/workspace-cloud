@@ -1,0 +1,28 @@
+---
+- name: Set auth key
+  hosts: headscale:tailscale
+  tasks:
+    - name: Get auth key  # noqa: run-once[task]
+      ansible.builtin.shell: |
+        set -euo pipefail
+        headscale -c {{ headscale_confdir }}/config.yaml users create cluster || true
+        headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u cluster
+      args:
+        executable: /bin/bash
+      delegate_to: "{{ groups['headscale'][0] }}"
+      run_once: true
+      register: headscale_auth_key
+      changed_when: false
+
+    - name: Set auth key
+      ansible.builtin.set_fact:
+        tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
+        tailscale_login_server: http://{{ hostvars[groups['headscale'][0]]['ansible_default_ipv4']['address'] }}:8514
+      delegate_to: "{{ groups['headscale'][0] }}"
+
+- name: Set auth tailscale
+  hosts: tailscale
+  tasks:
+    - name: Install tailscale
+      ansible.builtin.include_role:
+        name: andreygubarev.tailscale.tailscale

@@ -7,7 +7,7 @@ collections:
     version: 0.8.5
 
   - name: andreygubarev.tailscale
-    version: 0.2.1
+    version: 0.2.2
 
   - name: andreygubarev.proxy
     version: 0.1.2
