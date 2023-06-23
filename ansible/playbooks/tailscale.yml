@@ -1,13 +1,26 @@
 ---
 - name: Setup Tor Proxy
   hosts: headscale:tailscale
+  tags:
+    - proxy
   tasks:
     - name: Install torproxy
       ansible.builtin.include_role:
         name: andreygubarev.proxy.tor
 
+- name: Setup Socat Proxy
+  hosts: tailscale
+  tags:
+    - proxy
+  tasks:
+    - name: Install socat
+      ansible.builtin.include_role:
+        name: andreygubarev.proxy.socat
+
 - name: Setup Headscale
   hosts: headscale
+  tags:
+    - headscale
   tasks:
     - name: Install headscale
       ansible.builtin.include_role:
@@ -25,8 +38,10 @@
         group: root
         mode: '0755'
 
-- name: Set auth key
+- name: Get Tailscale Token
   hosts: headscale:tailscale
+  tags:
+    - tailscale
   tasks:
     - name: Get auth key  # noqa: run-once[task]
       ansible.builtin.shell: |
@@ -47,7 +62,11 @@
 
 - name: Setup Tailscale
   hosts: tailscale
+  tags:
+    - tailscale
   tasks:
     - name: Install tailscale
       ansible.builtin.include_role:
         name: andreygubarev.tailscale.tailscale
+      vars:
+        tailscale_login_server: http://localhost:18514
