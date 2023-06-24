@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  torproxy:
-    image: ghcr.io/andreygubarev/torproxy:0.3.0
+  tor:
+    image: ghcr.io/andreygubarev/tor:0.3.1
 
   socat:
     image: ghcr.io/andreygubarev/socat:0.1.0
@@ -10,7 +10,7 @@ services:
       - SOCAT_BIND_TYPE=tcp-listen
       - SOCAT_BIND_IFACE=8514
       - SOCAT_BIND_OPTS=fork,reuseaddr
-      - SOCAT_CONNECT_TYPE=socks4a:torproxy
+      - SOCAT_CONNECT_TYPE=socks4a:tor
       - SOCAT_CONNECT_IFACE=${HEADSCALE_AUTH_SERVER}
       - SOCAT_CONNECT_OPTS=socksport=9050
     ports:
