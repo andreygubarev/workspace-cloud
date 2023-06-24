@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  torproxy:
+    image: ghcr.io/andreygubarev/torproxy:0.1.3
+    volumes:
+      - tor:/var/lib/tor
+    restart: unless-stopped
+
+  tailscale:
+    image: ghcr.io/andreygubarev/tailscale:0.2.3
+    environment:
+      - TS_AUTHKEY=${HEADSCALE_AUTH_TOKEN}
+      - TS_EXTRA_ARGS=--hostname=client-1 --login-server http://localhost:8514 --socket=/var/run/tailscale/tailscaled.sock
+      - TS_TAILSCALED_EXTRA_ARGS=--socket=/var/run/tailscale/tailscaled.sock
+      - TS_USERSPACE=true
+      - TS_STATE_DIR=/var/lib/tailscale
+      - SOCAT_BIND_TYPE=tcp-listen
+      - SOCAT_BIND_IFACE=8514
+      - SOCAT_BIND_OPTS=fork,reuseaddr
+      - SOCAT_CONNECT_TYPE=socks4a:torproxy
+      - SOCAT_CONNECT_IFACE=${HEADSCALE_AUTH_SERVER}
+      - SOCAT_CONNECT_OPTS=socksport=9050
+    volumes:
+      - tailscale:/var/lib/tailscale
+    restart: unless-stopped
+    depends_on:
+      - torproxy
+
+volumes:
+  tor:
+  tailscale:
