@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  headscale:
+    image: ghcr.io/andreygubarev/torproxy:0.2.0
+    environment:
+      - SOCAT_BIND_TYPE=tcp-listen
+      - SOCAT_BIND_IFACE=8514
+      - SOCAT_BIND_OPTS=fork,reuseaddr
+      - SOCAT_CONNECT_TYPE=socks4a:127.0.0.1
+      - SOCAT_CONNECT_IFACE=${HEADSCALE_AUTH_SERVER}
+      - SOCAT_CONNECT_OPTS=socksport=9050
+    ports:
+      - 8514:8514
+    volumes:
+      - tor:/var/lib/tor
+    restart: unless-stopped
+
+volumes:
+  tor:
+  tailscale:
