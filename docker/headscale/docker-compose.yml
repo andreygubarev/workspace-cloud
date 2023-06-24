@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  headscale:
+  torproxy:
     image: ghcr.io/andreygubarev/torproxy:0.2.0
     environment:
       - SOCAT_BIND_TYPE=tcp-listen
