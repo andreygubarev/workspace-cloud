@@ -11,10 +11,11 @@ services:
     image: ghcr.io/andreygubarev/tailscale:0.2.3
     environment:
       - TS_AUTHKEY=${HEADSCALE_AUTH_TOKEN}
-      - TS_EXTRA_ARGS=--hostname=client-1 --login-server http://localhost:8514 --socket=/var/run/tailscale/tailscaled.sock
-      - TS_TAILSCALED_EXTRA_ARGS=--socket=/var/run/tailscale/tailscaled.sock
       - TS_USERSPACE=true
       - TS_STATE_DIR=/var/lib/tailscale
+      - TS_EXTRA_ARGS=--hostname=client-1 --login-server http://localhost:8514
+      - TS_TAILSCALED_EXTRA_ARGS=--socket=/var/run/tailscale/tailscaled.sock
+      - TS_SOCKET=/var/run/tailscale/tailscaled.sock
       - SOCAT_BIND_TYPE=tcp-listen
       - SOCAT_BIND_IFACE=8514
       - SOCAT_BIND_OPTS=fork,reuseaddr
