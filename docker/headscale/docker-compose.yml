@@ -12,10 +12,4 @@ services:
       - SOCAT_CONNECT_OPTS=socksport=9050
     ports:
       - 8514:8514
-    volumes:
-      - tor:/var/lib/tor
     restart: unless-stopped
-
-volumes:
-  tor:
-  tailscale:
