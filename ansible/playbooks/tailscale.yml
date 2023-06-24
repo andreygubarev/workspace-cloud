@@ -46,8 +46,8 @@
     - name: Get auth key  # noqa: run-once[task]
       ansible.builtin.shell: |
         set -euo pipefail
-        headscale -c {{ headscale_confdir }}/config.yaml users create cluster || true
-        headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u cluster
+        headscale -c {{ headscale_confdir }}/config.yaml users create cloud || true
+        headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u cloud
       args:
         executable: /bin/bash
       delegate_to: "{{ groups['headscale'][0] }}"
