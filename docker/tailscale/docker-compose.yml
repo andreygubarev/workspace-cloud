@@ -2,7 +2,7 @@ version: '3'
 
 services:
   headscale:
-    image: ghcr.io/andreygubarev/torproxy:0.2.0
+    image: ghcr.io/andreygubarev/tor:0.3.1
     environment:
       - SOCAT_BIND_TYPE=tcp-listen
       - SOCAT_BIND_IFACE=8514
@@ -10,8 +10,6 @@ services:
       - SOCAT_CONNECT_TYPE=socks4a:127.0.0.1
       - SOCAT_CONNECT_IFACE=${HEADSCALE_AUTH_SERVER}
       - SOCAT_CONNECT_OPTS=socksport=9050
-    volumes:
-      - tor:/var/lib/tor
     restart: unless-stopped
 
   tailscale:
@@ -31,5 +29,4 @@ services:
       - torproxy
 
 volumes:
-  tor:
   tailscale:
