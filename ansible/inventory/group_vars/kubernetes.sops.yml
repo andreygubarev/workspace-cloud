@@ -1,7 +1,7 @@
 k3s_version: ENC[AES256_GCM,data:PCC+NfU1gEzZae3y,iv:7Mh2JDB9Lee3sTmVKcK2t9QchLqOhqx4jNerccCDY+0=,tag:JcV0RXqoqmhSwmOPznczPQ==,type:str]
 k3s_cluster_token: ENC[AES256_GCM,data:9629IScsDcSHPQqaoPnITQgmaP1hnTAkQNXd0lBDt80=,iv:blAEKW062cUlbNB2RCaKR4pbvmTkUhBC4E/prry5aig=,tag:hE9PlrO5XNuuyqaPFDDA3A==,type:str]
 k3s_cluster_seed: ENC[AES256_GCM,data:D4x6+RD1E1ONeSFv,iv:28y40hkGZ9i0M/bKgO2v5QDZUiGJUCOFCbETIf0eYlo=,tag:AsioFGOSr18honQocIARyA==,type:str]
-k3s_cluster_seed_endpoint: ENC[AES256_GCM,data:UA7cxgFv6MURUg==,iv:OBoBwxXmoa1uumlbf6cmvsb+RuWVJ+xGTVJaHuvvaZw=,tag:rkKSP9zrlUOwylqepewMNQ==,type:str]
+k3s_cluster_seed_endpoint: ENC[AES256_GCM,data:VUY24J+f9Uq7Pw==,iv:W1Ul8jn1NeylyJS7nLXQGPdkR+LuAlcD9XBpulPDLdA=,tag:jMnHWvmtPD9Hmbwp62w7GA==,type:str]
 k3s_flannel_interface: ENC[AES256_GCM,data:hPhxy22y2IpcYg==,iv:+aqGpwXJaxa0z3sF0JxHdsn/5PnN7Y7flXZTdd1JNtc=,tag:1y72Dy+MoDOn/uNGYPxNTg==,type:str]
 sops:
     kms: []
@@ -9,8 +9,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T08:50:49Z"
-    mac: ENC[AES256_GCM,data:SiLqhIL1EYDevL2ATVU2pNevvPSUfM/665SIOFLNSAeyoyiGFyoMdSdMDB13z5zB72Iq1lBXzEWsqw65Nbru0t2hwopHLbKQmh3U+rGZ/X+GUiuxmqC0wxS143vZpYR1MaM/RciDDetWLUuRWw/8FdggpCSegKYRHTbhNxUvyI4=,iv:0Mj9WA9aw5My2zc6HwOEEosJ/sf3VHnmsO8im40uEH8=,tag:LTFr7Z0h4kRC+WG6IS5b+A==,type:str]
+    lastmodified: "2023-06-25T09:02:15Z"
+    mac: ENC[AES256_GCM,data:Jr1XmKaHLnVDa7YxCjW/XI+DpTbVD6Ihpwkn62cIqp4+BwqVsIwXOI1tsQ+TE0kvUI65dOe2Xn4ReiFH9nma5NXWnlkiX1dSQ0DRHRRN27MZCwTCmyhcDczN4MRnpwTKtkDZI8l+Y1mIP3g3T0dpyZLaEicmQTxIwoQqAulFVv4=,iv:k4cyyKLJ1nI/P1Z/wrbHwjXkL9nnEL+z1cNPeXyliUU=,tag:Kf0Qo03LeJXddCMJEotdQA==,type:str]
     pgp:
         - created_at: "2023-06-25T08:50:49Z"
           enc: |
