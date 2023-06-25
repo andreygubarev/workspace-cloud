@@ -1,4 +1,3 @@
-ansible_host: ENC[AES256_GCM,data:6/OnHRoce8lIJQ==,iv:gt9PgWZp9HX+rBudaD/AarPiNvuODbjgS0z74pkWqxo=,tag:9TGjzv1wqtQfhG7HLrRmuQ==,type:str]
 ansible_user: ENC[AES256_GCM,data:GdaAgi5n,iv:ky07IiGHGlVbFT4/3CFQLNcJQQnmTl9mGu4FN/RyrNE=,tag:kUFj36iR3UvW1u540t/5Zg==,type:str]
 ansible_become: ENC[AES256_GCM,data:Woh+pQ==,iv:5pct/4JDO9uUQWHh6F0jQZMwniR4ss4MhvTxF4M1duc=,tag:PiHQwKGGnBxH2j1ZEi7ycA==,type:bool]
 tor_bridges:
@@ -10,8 +9,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-23T06:35:29Z"
-    mac: ENC[AES256_GCM,data:bYpokuz3ZS2irFtbTcSa8eftY/2iKq2Yv7G00ch4iP/+SuL/Q/D3xrXiyksJrexr56yLI7eNTk9Ilh72JlZKiTXIsiVSOfNyh0u79LiKKw1WgNHWE9sqcCiuhbUneN1LLDQfCUdLA+pPzLHAaNqFKUMA6sFAR79ai4rApt1aYVA=,iv:uwlAfJNFEUu+NZDdeCTRmaggwcaH3I3qqCLH720mWMA=,tag:HcPn0R/yulEmCekD8yHEbA==,type:str]
+    lastmodified: "2023-06-25T06:44:39Z"
+    mac: ENC[AES256_GCM,data:+Py8mVdexo/sIw/hZQffsxbZ5IJkuM+KDf9KylbmulspZkb5zHRU8u7FJiQKFGWW/Z/e7ty7hhlsRlrSbpyTjE2zthLNW2tmqCWQEziUSNpzVKBWBqLNwjKgIynMAf03E5isKYtgYBZP7KLoSvmDl3CdZguTuHVOrwU6dwGwobo=,iv:66d6qXnrWb+2gw8zwKC6C7p9BlIQl6iUu0b7EwkjhIg=,tag:obU2jdu4Drxpl5+a5SpzYA==,type:str]
     pgp:
         - created_at: "2023-06-17T23:33:56Z"
           enc: |
