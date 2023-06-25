@@ -1,0 +1,32 @@
+---
+- name: Install torproxy
+  ansible.builtin.include_role:
+    name: andreygubarev.proxy.tor
+
+- name: Install socat
+  ansible.builtin.include_role:
+    name: andreygubarev.proxy.socat
+
+- name: Get auth key  # noqa: run-once[task]
+  ansible.builtin.uri:
+    url: "http://localhost:8514/api/v1/preauthkey"
+    method: POST
+    headers:
+      Authorization: "Bearer {{ network_server_token }}"
+    body:
+      user: "map"
+      expiration: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int) + (60 * 10), true) }}"
+    body_format: json
+    return_content: true
+  changed_when: false
+  register: tailscale_auth_key
+
+- name: Set auth key
+  ansible.builtin.set_fact:
+    tailscale_auth_key: "{{ tailscale_auth_key.json.preAuthKey.key }}"
+
+- name: Install tailscale
+  ansible.builtin.include_role:
+    name: andreygubarev.tailscale.tailscale
+  vars:
+    tailscale_login_server: http://localhost:8514

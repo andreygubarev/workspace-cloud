@@ -1,69 +1,10 @@
 ---
-- name: Setup Tor Proxy
-  hosts: network
-  tasks:
-    - name: Install torproxy
-      ansible.builtin.include_role:
-        name: andreygubarev.proxy.tor
-
-- name: Setup Headscale
+- name: Setup network server
   hosts: network_server
-  tasks:
-    - name: Install headscale
-      ansible.builtin.include_role:
-        name: andreygubarev.tailscale.headscale
-      vars:
-        headscale_advertise_proto: http
-        headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
-        headscale_advertise_port: "{{ tor_hiddenservice_port }}"
+  roles:
+    - role: network_server
 
-    - name: Get auth key  # noqa: run-once[task]
-      ansible.builtin.shell: |
-        set -euo pipefail
-        headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u {{ headscale_magicdns_network }}
-      args:
-        executable: /bin/bash
-      run_once: true
-      register: headscale_auth_key
-      changed_when: false
-
-    - name: Set auth key
-      ansible.builtin.set_fact:
-        tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
-
-    - name: Install tailscale
-      ansible.builtin.include_role:
-        name: andreygubarev.tailscale.tailscale
-      vars:
-        tailscale_login_server: http://localhost:8514
-
-- name: Setup Tailscale on other nodes
+- name: Setup network agents
   hosts: network_agent
-  tasks:
-    - name: Install socat
-      ansible.builtin.include_role:
-        name: andreygubarev.proxy.socat
-
-    - name: Get auth key  # noqa: run-once[task]
-      ansible.builtin.uri:
-        url: "http://localhost:8514/api/v1/preauthkey"
-        method: POST
-        headers:
-          Authorization: "Bearer {{ network_server_token }}"
-        body:
-          user: "map"
-          expiration: "{{ '%Y-%m-%dT%H:%M:%SZ' | strftime( (ansible_date_time.epoch | int) + (60 * 10), true) }}"
-        body_format: json
-        return_content: true
-      changed_when: false
-      register: tailscale_auth_key
-
-    - name: Set auth key
-      ansible.builtin.set_fact:
-        tailscale_auth_key: "{{ tailscale_auth_key.json.preAuthKey.key }}"
-
-    - name: Install tailscale
-      ansible.builtin.include_role:
-        name: andreygubarev.tailscale.tailscale
-      vars:
-        tailscale_login_server: http://localhost:8514
+  roles:
+    - role: network_agent

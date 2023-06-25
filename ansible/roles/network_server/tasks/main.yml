@@ -1,0 +1,32 @@
+---
+- name: Install torproxy
+  ansible.builtin.include_role:
+    name: andreygubarev.proxy.tor
+
+- name: Install headscale
+  ansible.builtin.include_role:
+    name: andreygubarev.tailscale.headscale
+  vars:
+    headscale_advertise_proto: http
+    headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
+    headscale_advertise_port: "{{ tor_hiddenservice_port }}"
+
+- name: Get auth key  # noqa: run-once[task]
+  ansible.builtin.shell: |
+    set -euo pipefail
+    headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u {{ headscale_magicdns_network }}
+  args:
+    executable: /bin/bash
+  run_once: true
+  register: headscale_auth_key
+  changed_when: false
+
+- name: Set auth key
+  ansible.builtin.set_fact:
+    tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
+
+- name: Install tailscale
+  ansible.builtin.include_role:
+    name: andreygubarev.tailscale.tailscale
+  vars:
+    tailscale_login_server: http://localhost:8514
