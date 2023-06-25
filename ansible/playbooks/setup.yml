@@ -1,5 +1,0 @@
----
-- name: Setup VPS
-  hosts: vps
-  roles:
-    - role: setup

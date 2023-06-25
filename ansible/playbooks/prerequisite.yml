@@ -1,4 +1,9 @@
 ---
+- name: Setup VPS
+  hosts: vps
+  roles:
+    - role: setup
+
 - name: Setup network server
   hosts: network_server
   roles:
