@@ -1,18 +1,13 @@
 ---
 - name: Setup Tor Proxy
-  hosts: headscale:tailscale
-  tags:
-    - proxy
-    - tailscale
+  hosts: network
   tasks:
     - name: Install torproxy
       ansible.builtin.include_role:
         name: andreygubarev.proxy.tor
 
 - name: Setup Headscale
-  hosts: headscale
-  tags:
-    - headscale
+  hosts: network_server
   tasks:
     - name: Install headscale
       ansible.builtin.include_role:
@@ -22,36 +17,12 @@
         headscale_advertise_addr: "{{ tor_hiddenservice_hostname }}"
         headscale_advertise_port: "{{ tor_hiddenservice_port }}"
 
-    - name: Create tailscale directory
-      ansible.builtin.file:
-        path: /mnt/local/tailscale
-        state: directory
-        owner: root
-        group: root
-        mode: '0755'
-
-- name: Setup Socat Proxy
-  hosts: tailscale
-  tags:
-    - proxy
-    - tailscale
-  tasks:
-    - name: Install socat
-      ansible.builtin.include_role:
-        name: andreygubarev.proxy.socat
-
-- name: Get Tailscale Token
-  hosts: headscale:tailscale
-  tags:
-    - tailscale
-  tasks:
     - name: Get auth key  # noqa: run-once[task]
       ansible.builtin.shell: |
         set -euo pipefail
         headscale -c {{ headscale_confdir }}/config.yaml preauthkeys create -u {{ headscale_magicdns_network }}
       args:
         executable: /bin/bash
-      delegate_to: "{{ groups['headscale'][0] }}"
       run_once: true
       register: headscale_auth_key
       changed_when: false
@@ -59,26 +30,22 @@
     - name: Set auth key
       ansible.builtin.set_fact:
         tailscale_auth_key: "{{ headscale_auth_key.stdout_lines[-1] }}"
-      delegate_to: "{{ groups['headscale'][0] }}"
 
-- name: Setup Tailscale on Headscale
-  hosts: headscale
-  tags:
-    - headscale
-  tasks:
     - name: Install tailscale
       ansible.builtin.include_role:
         name: andreygubarev.tailscale.tailscale
       vars:
         tailscale_login_server: http://localhost:8514
 
-- name: Setup Tailscale on other nodes
-  hosts: tailscale
-  tags:
-    - tailscale
-  tasks:
-    - name: Install tailscale
-      ansible.builtin.include_role:
-        name: andreygubarev.tailscale.tailscale
-      vars:
-        tailscale_login_server: http://localhost:18514
+# - name: Setup Tailscale on other nodes
+#   hosts: network_agent
+#   tasks:
+#     - name: Install socat
+#       ansible.builtin.include_role:
+#         name: andreygubarev.proxy.socat
+
+#     - name: Install tailscale
+#       ansible.builtin.include_role:
+#         name: andreygubarev.tailscale.tailscale
+#       vars:
+#         tailscale_login_server: http://localhost:8514
