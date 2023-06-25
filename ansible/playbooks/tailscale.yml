@@ -8,15 +8,6 @@
       ansible.builtin.include_role:
         name: andreygubarev.proxy.tor
 
-- name: Setup Socat Proxy
-  hosts: tailscale
-  tags:
-    - proxy
-  tasks:
-    - name: Install socat
-      ansible.builtin.include_role:
-        name: andreygubarev.proxy.socat
-
 - name: Setup Headscale
   hosts: headscale
   tags:
@@ -37,6 +28,15 @@
         owner: root
         group: root
         mode: '0755'
+
+- name: Setup Socat Proxy
+  hosts: tailscale
+  tags:
+    - proxy
+  tasks:
+    - name: Install socat
+      ansible.builtin.include_role:
+        name: andreygubarev.proxy.socat
 
 - name: Get Tailscale Token
   hosts: headscale:tailscale
