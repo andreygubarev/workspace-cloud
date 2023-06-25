@@ -1,18 +1,19 @@
-- name: Identify the root filesystem
+---
+- name: Identify root filesystem
   ansible.builtin.set_fact:
     root_filesystem_partition: "{{ ansible_mounts | selectattr('mount', 'equalto', '/') | map(attribute='device') | first }}"
   changed_when: false
 
-- name: Get the root filesystem device
+- name: Get device of root filesystem
   ansible.builtin.command: lsblk -no PKNAME "{{ root_filesystem_partition }}"
   register: root_filesystem_device
   changed_when: false
 
-- name: Set the root filesystem device
+- name: Set device of root filesystem
   ansible.builtin.set_fact:
     root_filesystem_device: "/dev/{{ root_filesystem_device.stdout | trim }}"
 
-- name: Resize the root filesystem
+- name: Setup root filesystem
   ansible.builtin.include_role:
     name: andreygubarev.debian.root_filesystem
 
