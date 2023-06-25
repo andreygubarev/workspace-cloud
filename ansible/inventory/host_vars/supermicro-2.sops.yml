@@ -3,14 +3,17 @@ ansible_become: ENC[AES256_GCM,data:4Q7S2g==,iv:cYGnJIbRZxDfI8OtA5cxumDi9qvR+s6E
 tor_bridges:
     - ENC[AES256_GCM,data:bLbXwvHW67LH1cKEeOWvww3/IcWJtowo86FrJzL71r0m+Gq/TjoU4wCBxB/vxtrxU0gr90xbrWCDmBs2,iv:a1A9OeqY9Jwjj70g3+hEB6igwsNR4LlMQ6AoWQH3czY=,tag:fExJoMDek0oG5xIFVKdjhA==,type:str]
     - ENC[AES256_GCM,data:Z8Ech7kcMFcFmIko4hAnJr2Jh07JKvvSjA7hNg/2cqqC/Fwyyo7Uq4+PTkI9yZUP3PTbOHTyUdf1,iv:zNgOz9DZT9D/U1C2/E4Tm1/XWYRbfC/qXpTyXOX6umM=,tag:KZSD1lB8834JYAri2zZ1pQ==,type:str]
+k3s_node_label:
+    - ENC[AES256_GCM,data:O64kmnUB3DEZQNf3hU2AAXjvzrU17xeuv9JReTyeyrcF,iv:J+/gDrFX5Cq9kBRHFUNGA4VnyORNfaBLKuTls3YHHfQ=,tag:YW8Xbo6miQ+U/I0hTtqFHg==,type:str]
+    - ENC[AES256_GCM,data:l/GeXs54HrTf2n7IbqbKh/Su+UeAq9BAks63mv6fcVnrPZPWhKaclHc=,iv:y0ZpIEfU1f0tOVFvVRxNI3ZqLkfX/mkFQcCvO8AfMh4=,tag:sbx8MgScxqfSejI7xqQYdg==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T06:44:44Z"
-    mac: ENC[AES256_GCM,data:eiPpLA0oLDhoxiXflr8mnNoNE+XVLd6v+nFnAizdRc3r6XElSqZwi4drNxwgd+pzBzREDPaGKSpOEdc1ALEtAoM3IPyN3QZ9AMj8BHVje/zcyMA02Cf0kX029TSeOEeMa7adW8sr8eu3TR8jPjibhH/qEK4HNP1bhF/uGx+F/4k=,iv:CX0wb2cBOOs6NgXhFa3y+bQRUwtEgz5KJFiuyVcL8gQ=,tag:031JVWZntgJAGRZun0tXQA==,type:str]
+    lastmodified: "2023-06-25T10:05:26Z"
+    mac: ENC[AES256_GCM,data:1g5DaFaw++hupP/oqulAQaoBVv+xCpbc9f8gdM5pzludqcjgNa9+B6FWhY3Y3n2oSfCDTpO4JhKu8nauRwRMWoMKGVUdKQeWhKeGhaSVFpo+pOfOPUcz8g35oRCQi39Fr9hWQueja/zirpBk3v/q/7OFi7tcSD6jtOc4IF/wcNY=,iv:Y8mQDy6YXSqcJi5MNxBR6HibiHvyErR5xqDtGLcVhZ4=,tag:xB6ib4yKvtvwsRVmDLE3eA==,type:str]
     pgp:
         - created_at: "2023-06-23T07:49:12Z"
           enc: |

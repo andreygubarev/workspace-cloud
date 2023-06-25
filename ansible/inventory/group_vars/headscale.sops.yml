@@ -5,17 +5,14 @@ headscale_statedir: ENC[AES256_GCM,data:VyCMNGVGgEcGSYuaG9+C5OL4nYBBlKhu,iv:4Dhu
 headscale_magicdns_domain: ENC[AES256_GCM,data:GCzYSNaf4aKLFpXnrDJMVhUse3ivfA==,iv:YehONINi+J2co4p3t1B8eZaL8R26UL99hVn8ELdnNyc=,tag:+23Z28QZJ41Wh1vIcfTF7w==,type:str]
 headscale_magicdns_network: ENC[AES256_GCM,data:f71S,iv:qMGj5rnoZw28Z9V7HtqrOKVYmdZQSL9cf+XsPlAFpGs=,tag:97DOCD/722E3Gndy0/xItQ==,type:str]
 tor_hiddenservice: ENC[AES256_GCM,data:TfA7Nf1eNImoAc4/X6k=,iv:PUmAP8UtSLwadIQV+JThKhNtrQF/aRNdQN0KR12L0lg=,tag:jdHaFIpkQgZ/9zqzMUaz2w==,type:str]
-tor_path_confdir: ENC[AES256_GCM,data:14nhFvrQEQ8RNv+1+xU=,iv:RMsGGBWJgEESWNWsXUfSesbrUJAUifkv5ON/8k2X7LI=,tag:rd4vwqMhgnYMRf8WqaBQow==,type:str]
-tor_path_statedir: ENC[AES256_GCM,data:euBua5B/xdW+hZHKjFuUTZtd,iv:DB6V20mkLeDCqK9RtlwL57Fh+PA+6RM43vvIEkjy2wk=,tag:58uh9pZ07W/TlxnApWGtUA==,type:str]
-tailscale_state: ENC[AES256_GCM,data:eyBBhXardWA8ix9ZrihQfxDtWqoU+tWrlgp+trYLGGwnxV3zxQ==,iv:xJt3/86FvVwiK3270GhuntdGusVwrRbNb+fC1Re6gZc=,tag:7rIG8Gp2hS2lwgXyB3Zn6g==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T07:20:59Z"
-    mac: ENC[AES256_GCM,data:UckGbvk+kNtUfXrUm+SCQpEqEOWb4tyZhjOGNbmESxXv4oSFRnYxxS5GvkH0WZwBhD/KSTxHFc2QoP1Zz1gVGkQOa8TyzVv1BtLQ2o5MtzzY/8yKSaSOKco1ZGw4sg73MXYY58HLz5UdpPv5VUQnm9exgoam1jw+5/unsOfS5Po=,iv:hftjQo8PBNzc1orchfDx8zmIARPg4ULZDVCSkGKb+a4=,tag:tTOn998ZyJrvS4X32R2LFA==,type:str]
+    lastmodified: "2023-06-25T09:55:28Z"
+    mac: ENC[AES256_GCM,data:JRuXF9p1GE/buradjJaUHMZJVB9ZN7sYhLapmOm6ZyJHreXY+mN0W1y02YYJahz6OztUXQEk4mwMEh5XBvshgARA7ifQzb9JEE5zP8068bL27s2cnYRfO/gx2JDMNlPjxyv/qu7e1/k8YSO07RzrDF5PKFEqbws9wV7edstrVdo=,iv:/PrKo8uVkZNd1vpjp8QLpRcerk5i3unSMNodhIMSCog=,tag:92k/f3MIdIGAOQwqdPjR4Q==,type:str]
     pgp:
         - created_at: "2023-06-20T01:10:51Z"
           enc: |
