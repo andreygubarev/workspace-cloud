@@ -11,14 +11,16 @@ lvm_logical_volumes:
 tor_path_confdir: ENC[AES256_GCM,data:fp/r5tZJPqrK3oHO6+A=,iv:0/eJcaVtTizAs4E8Yj64S6Cpa4Rbo6OQJtXRLk5UPbo=,tag:uaR+vdAOtJygTPrEqN7cYw==,type:str]
 tor_path_statedir: ENC[AES256_GCM,data:PNb99iDkw/cjuJi2WNiv2gLW,iv:U5E5qvGQUCxIEv+JX6XsGX5rhU5N8aRkPsBwSEcsUO0=,tag:r8q/IjJn5JKwj/AIt9T1qQ==,type:str]
 tailscale_state: ENC[AES256_GCM,data:YXxRFkR1AsxfJz6fLxvfQQ3t8EDAaYBw/JL0FpT+/aAKA0rdBw==,iv:n/xNbOUIVVXt5mW0fUAxyK+VKbUiNc4fKWRpqvqDL0E=,tag:mCOJokkIEOvTtgB9kuIQoQ==,type:str]
+k3s_service_statedir: ENC[AES256_GCM,data:YzFCiUusT9JYVo2ChJU=,iv:168MOn/CjE4whwiVVuKBstKJWWWPOSrVbUH+S/ld/R4=,tag:dHqv0YcXNVG+ayqxZ20o8g==,type:str]
+k3s_service_confdir: ENC[AES256_GCM,data:lt2RioI619rJxn/bUww=,iv:IvIGFKTgzSD/CAl+mn8NN1rKWUACQ97M3pgblYbMIJw=,tag:NJKuP7aNVL4iU9Pq4XUsSw==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T09:55:08Z"
-    mac: ENC[AES256_GCM,data:RejRSXAx51kbxrxkJO/DOfvYUqeRthSUDqhFHi3TgBGLc89/3QrnaV52kNYowgtzDWXdPdAFaaHKjbGJN75U4Ff4il6bvf35I1pKpyaGIX21AS/xJhmzwhZv3O+cd0aEN+zh5aXBQGisgEquBCLymNeF2ER0Z4RH1gymP4LBF0Q=,iv:FYvNd6lNk1FTzgXNjgwWzBbphgy+jCQT0C8fodawLQg=,tag:AMzIYviL7A281aWZfImVJg==,type:str]
+    lastmodified: "2023-06-25T12:19:12Z"
+    mac: ENC[AES256_GCM,data:uI68CzrUMfDeKCnHQ+HjHWEfZsfZiljpKQ1CwiDUtWWaB666SY40cUDk3hXCz5MtmWuaV6rn2BXctw3tJj3bxkvDLCiy1UEEL69OS+PgHAQcDvrLZi7KtlQZ609CdoFFgIUFuvJ1+rlhGUeHmr+YzC4hMpPjmgXfRMZfvOPJ35Q=,iv:bCdSG7JNTZiO81alrNO3pCFztsfwPRmJtzXYPaUFIAo=,tag:zCfrTP1wwEh/qv1EsZTm2Q==,type:str]
     pgp:
         - created_at: "2023-06-18T02:54:41Z"
           enc: |

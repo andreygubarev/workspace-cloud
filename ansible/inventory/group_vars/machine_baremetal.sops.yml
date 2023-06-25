@@ -1,0 +1,22 @@
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-25T12:19:35Z"
+    mac: ENC[AES256_GCM,data:AXA+yuUmvnrRCsUupwyu6Oh4nWZerjUbd23aCt2rleaic44iDubh7V0y8yy3DQIRoq6FCuQtHVojdEsVRlivYCIABbDvkvqTZrCbtR+14HvC5fyw4qXZUqv+zl6wAHDwpKu6PAxRGH9mZR8VVkpAtLWnCatuIxqkF5mJGrkVE7A=,iv:RPgdJd5wIGNWmwUcuYGa+nGx+Uxd/dJlIH2xv9B4Dko=,tag:UM4VujGuD1R2zy7WBrDB7g==,type:str]
+    pgp:
+        - created_at: "2023-06-25T12:19:33Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdASkRUxFIYXKWfIVPyNc4AQAKKLo2N1PcjG7kxF7UwiTYw
+            tew79yStOp2rZJNxzSdV+xcuY1evv7ADP2urzJiN1AdN67NM8b0ygy6sqoXXVG/u
+            0l4BTPliXQwiNUheeaUNuR7YNsz6K3K6YT8YRs3riTFr0kpUX1StlV79lsldRh3P
+            6nzz3XP1LVizYDOXdtTpfPpSw1Ltekpce+VtTiNbItr0sYg2HuIlZVbjtaO950ej
+            =lnZv
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3

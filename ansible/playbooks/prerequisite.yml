@@ -1,6 +1,6 @@
 ---
 - name: Setup VPS
-  hosts: vps
+  hosts: machine_vps
   roles:
     - role: setup
 
