@@ -1,0 +1,6 @@
+- name: Kubernetes
+  hosts: kubernetes
+  become: true
+  roles:
+    - role: andreygubarev.kubernetes.k3s
+      tags: [ 'kubernetes' ]

@@ -1,0 +1,23 @@
+k3s_node_role: ENC[AES256_GCM,data:Y4wSO4u2,iv:2s50D15uGjlDln+eFNLAnjJFT+DGWqYkKYue2J8TyYU=,tag:/+rHbvTHrT8U0es56B++/Q==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-25T08:50:45Z"
+    mac: ENC[AES256_GCM,data:nRCdqdGTUOWeUycVVM5lfSel0kFKqnvfjnOx3rBseWurd4uEGKvXYxXMWav862EeqRy2RRgoQc8cGWZrtJaprI1pDtD7hZfqHTKPaoPXcn4KYHLkhVVa5aDtIWEwre5Lc54ezUatfeVoyii46yAPFh98JYTJchZetzser4189gQ=,iv:5cTgyiBvbZefS0CgB0Wv1qqE6P3rjicFNpClhARAFrg=,tag:nZ8K2DcWyGZWPUHt6Xo1OA==,type:str]
+    pgp:
+        - created_at: "2023-06-25T08:50:45Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdAJm4/3vfwzAjLXRCt/1g7lC4TYKcIWnuFgapWsVVVaQ0w
+            EiPWUoBXkn7rVxaDP4oehOgxhMk+pK5JClWEvF99eP/rOtBG3MN+xzl0VONfABXB
+            0l4BlX0RBCpnQpLaYrIU5UaUUpriAf60jTLMrHnS2dkthKOBecKtWJ75C0vvdPJZ
+            nZ5M+xzh+ANFuAJWot9hOn5buhCO7im+U5UXICcSDb9eCmHrZplSuC+U12cAlkmP
+            =aPAO
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
