@@ -1,0 +1,50 @@
+- name: Identify the root filesystem
+  ansible.builtin.set_fact:
+    root_filesystem_partition: "{{ ansible_mounts | selectattr('mount', 'equalto', '/') | map(attribute='device') | first }}"
+  changed_when: false
+
+- name: Get the root filesystem device
+  ansible.builtin.command: lsblk -no PKNAME "{{ root_filesystem_partition }}"
+  register: root_filesystem_device
+  changed_when: false
+
+- name: Set the root filesystem device
+  ansible.builtin.set_fact:
+    root_filesystem_device: "/dev/{{ root_filesystem_device.stdout | trim }}"
+
+- name: Resize the root filesystem
+  ansible.builtin.include_role:
+    name: andreygubarev.debian.root_filesystem
+
+- name: Set device for allocating freespace
+  ansible.builtin.set_fact:
+    allocate_freespace_device: "{{ root_filesystem_device }}"
+
+- name: Allocate freespace
+  ansible.builtin.include_role:
+    name: andreygubarev.debian.allocate_freespace
+  vars:
+    allocate_freespace_device: "{{ root_filesystem_device }}"
+
+- name: Setup LVM
+  ansible.builtin.include_role:
+    name: andreygubarev.debian.lvm
+  vars:
+    lvm_physical_volume: "{{ allocate_freespace_partition }}"
+
+- name: Setup mountpoints
+  ansible.builtin.include_role:
+    name: andreygubarev.debian.mountpoint
+  vars:
+    mountpoint_path: "/{{ item }}"
+    mountpoint_volume: "/dev/{{ lvm_volume_group }}/{{ item }}"
+  loop:
+    - home
+    - tmp
+    - var
+
+- name: Setup LUKS
+  ansible.builtin.include_role:
+    name: andreygubarev.debian.luks
+  vars:
+    luks_device: "/dev/{{ lvm_volume_group }}/local"
