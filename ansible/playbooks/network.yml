@@ -3,6 +3,7 @@
   hosts: headscale:tailscale
   tags:
     - proxy
+    - tailscale
   tasks:
     - name: Install torproxy
       ansible.builtin.include_role:
@@ -33,6 +34,7 @@
   hosts: tailscale
   tags:
     - proxy
+    - tailscale
   tasks:
     - name: Install socat
       ansible.builtin.include_role:
