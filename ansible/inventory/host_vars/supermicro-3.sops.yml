@@ -4,16 +4,17 @@ tor_bridges:
     - ENC[AES256_GCM,data:8FJ480JodW2lI4wYFz4EHjLxL4hL7GlMsUsAD4fPE8iwVVdf7Tob+2KgWyq7ymyi5NBD7PZ8QSp5rySH,iv:p+FH0aTT0kAv0pcE0TdKZ42Cg5QWZ86AkjSTA8I08f8=,tag:DIRoxU3uxXARvdvbif6z/g==,type:str]
     - ENC[AES256_GCM,data:I+5Msnj6PbqQogqS5plr2jXsA16xMKJjHlKKHVU+96wXH5PTQOsiQWy3OAYgS5KJPsShpdxpm4XE,iv:XjEKc72XSX+cMlkMS5XWzHPoaieJbKChstGsxRsRYbw=,tag:XDmYEmNtHiTMz5IJIRZzoQ==,type:str]
 k3s_node_label:
-    - ENC[AES256_GCM,data:gfLFlXQhO/P0JxWM1czvRN6v+I/KgSrPFiOpNFEIpjjg,iv:LO894U42gjYRDq4vWiw6libIcEib2q69ZOfBK+xjtwo=,tag:X/5GC+PHFCNc8oRrF7gymg==,type:str]
-    - ENC[AES256_GCM,data:lOsrgPyY3QbIgQMP2Gto8Pl5piAgniX0zP8hViYaRuTtCBpNv8/2yGc=,iv:kXvpnHTqTXrnu/GggFed/KPAjPaHBOjPpkhhD8FkLDc=,tag:SKdw8X7H+qzWdPa+L31OWQ==,type:str]
+    - ENC[AES256_GCM,data:5+BT54RTQUs1aMPlAjeNjq6vBhmtPH4BKyfHy3nlO0g=,iv:yiucEm66qkN8CiGwW4kwesu1mZHoKT9r5nRHSwJxmFw=,tag:jdX+hlA0OnFif4/UxFRS4w==,type:str]
+    - ENC[AES256_GCM,data:aE9Ejium+YDDcdDSbLuN79+AHUIJgOgNEsm2vY4NJYOoKWBTbJp+hw==,iv:XBBTCKKTmcNuLQvKRXV2yN8KK9v2Ry269e+nnldiqf8=,tag:DwEZGfHdgQNfMb96JKdnRA==,type:str]
+    - ENC[AES256_GCM,data:FAyky0yjeKYdJClKm4RCRROTxQIuKQNP6mKBedaKXj0F,iv:PGcV0tPf3GddqKuqqSMwNNc0R69YJ63VxqPXOXSRIDI=,tag:+eJwwG+65mMItOFgvBG8NQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T10:05:12Z"
-    mac: ENC[AES256_GCM,data:+NOQRO/dUJWNc/PmN/E7RcRnWL6c7SxyDXo6Yu4dxErwqzJkzsi00j4K5CwF5T2At+SyI5jd5sli21GHfZsiT/gmLMNQPrQXKA6JtUEqCkKWj+I/NJ9rgP7ewldG07wCszfe6Zv14NKvkPzQptJW9KUzSnUtLV59Ev18vSKHScA=,iv:cXhbEhJFjOByaOcJKQOP112i+FFGqLcmgzauYOyA6gY=,tag:2xuTrGka3+aK83nWVEsBHQ==,type:str]
+    lastmodified: "2023-06-27T11:43:21Z"
+    mac: ENC[AES256_GCM,data:p672dyYfSgvdGLNeazs0mfehQGSotTLC+iRPXBgEpyKDCKpRKpYzO8EFGB/dCd7ovpslQ/0MOTIDJWIp4bG5lXdUYV3DQ3gfTL6/rKwIooB2I+Jb1cIL/4PbVOrI/6RFSf+fuuuQMjXZUw/zURxiLbcNvPbsokY8/qceuRsWmXs=,iv:i+dCaPEZ6UHfVt74smsKTI49W7/QWqEAO+IyhCtyL4w=,tag:JOA5JFP1xMsxUrCdN388Ig==,type:str]
     pgp:
         - created_at: "2023-06-23T07:54:22Z"
           enc: |
