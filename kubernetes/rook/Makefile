@@ -1,10 +1,10 @@
 HELM_REPO := rook-release
 ROOK_OPERATOR_NAMESPACE := rook-ceph
 ROOK_OPERATOR_HELM_RELEASE := rook-ceph
-ROOK_OPERATOR_HELM_VALUES := values/rook-operator.yml
+ROOK_OPERATOR_HELM_VALUES := values/rook-operator.sops.yml
 ROOK_CLUSTER_NAMESPACE := rook-ceph-cluster
 ROOK_CLUSTER_HELM_RELEASE := rook-ceph-cluster
-ROOK_CLUSTER_HELM_VALUES := values/rook-cluster.yml
+ROOK_CLUSTER_HELM_VALUES := values/rook-cluster.sops.yml
 
 .PHONY: help
 help: ## Show this help
@@ -20,9 +20,9 @@ helm-repo: ## Add Rook Helm repository
 
 .PHONY: rook-operator-install
 rook-operator-install: helm-repo ## Install Rook Operator
+	sops -d $(ROOK_OPERATOR_HELM_VALUES) | \
 	helm upgrade --install --create-namespace --namespace $(ROOK_OPERATOR_NAMESPACE) \
-		$(ROOK_OPERATOR_HELM_RELEASE) $(HELM_REPO)/rook-ceph \
-		-f $(ROOK_OPERATOR_HELM_VALUES)
+		$(ROOK_OPERATOR_HELM_RELEASE) $(HELM_REPO)/rook-ceph -f -
 
 .PHONY: rook-operator-delete-helm
 rook-operator-delete-helm: ## Delete Rook Operator Helm
@@ -39,17 +39,17 @@ rook-operator-delete: rook-operator-delete-helm rook-operator-hook-post-delete #
 
 .PHONY: rook-cluster-install
 rook-cluster-install: helm-repo ## Install Rook Cluster
+	sops -d $(ROOK_CLUSTER_HELM_VALUES) | \
 	helm upgrade --install --create-namespace --namespace $(ROOK_CLUSTER_NAMESPACE) \
-		$(ROOK_CLUSTER_HELM_RELEASE) $(HELM_REPO)/rook-ceph-cluster \
-		--set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) \
-		-f $(ROOK_CLUSTER_HELM_VALUES)
+		$(ROOK_CLUSTER_HELM_RELEASE) $(HELM_REPO)/rook-ceph-cluster -f - \
+		--set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE)
 
 .PHONY: rook-cluster-template
 rook-cluster-template: ## Render Rook Cluster template
+	sops -d $(ROOK_CLUSTER_HELM_VALUES) | \
 	helm template --namespace $(ROOK_CLUSTER_NAMESPACE) \
-		$(ROOK_CLUSTER_HELM_RELEASE) $(HELM_REPO)/rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) \
-	   -f $(ROOK_CLUSTER_HELM_VALUES)
+		$(ROOK_CLUSTER_HELM_RELEASE) $(HELM_REPO)/rook-ceph-cluster -f - \
+	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE)
 
 .PHONY: rook-cluster-delete-helm
 rook-cluster-delete-helm: ## Delete Rook Cluster Helm
