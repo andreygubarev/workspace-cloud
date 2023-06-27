@@ -1,11 +1,12 @@
+k3s_service_statedir: ENC[AES256_GCM,data:YHkWfqFQrmX3bhdQvg==,iv:AWf40Zt8AZGCIx9o+rKHrFrgcQjRFyd5KUdVDUeQXLQ=,tag:q2LTud//DP5UhsIyfVzN4A==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-25T12:19:35Z"
-    mac: ENC[AES256_GCM,data:AXA+yuUmvnrRCsUupwyu6Oh4nWZerjUbd23aCt2rleaic44iDubh7V0y8yy3DQIRoq6FCuQtHVojdEsVRlivYCIABbDvkvqTZrCbtR+14HvC5fyw4qXZUqv+zl6wAHDwpKu6PAxRGH9mZR8VVkpAtLWnCatuIxqkF5mJGrkVE7A=,iv:RPgdJd5wIGNWmwUcuYGa+nGx+Uxd/dJlIH2xv9B4Dko=,tag:UM4VujGuD1R2zy7WBrDB7g==,type:str]
+    lastmodified: "2023-06-27T20:46:17Z"
+    mac: ENC[AES256_GCM,data:HvmaBSbl8DOtrlM/0arXwDKnBhO0gkXOvjCpor+Jz9jJscDmzWbfDDDZD0ihWgK7YF+L1Cl4tyJByUP4fhVR3MRi7IleYDT2rzwqRoHHZQeSX7Vi8SORFpr+ArVt++4+nrAiGH78gY90wlv4Oj7ozlfiSh3BTZMGfdC0HVTMZZk=,iv:HejVl4JgVYQFZ5sAvEXEUCn65AYStP0dJLoeZzDqqkE=,tag:0U6oHOr/TsYtnSp5HR2MFg==,type:str]
     pgp:
         - created_at: "2023-06-25T12:19:33Z"
           enc: |
