@@ -1,7 +1,7 @@
 .PHONY: install
 install:
-	kustomize build src | kubectl apply -f -
+	kubectl kustomize github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.3 | kubectl apply -f -
 
 .PHONY: delete
 delete:
-	kustomize build src | kubectl delete -f -
+	kubectl kustomize github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.3 | kubectl delete -f -
