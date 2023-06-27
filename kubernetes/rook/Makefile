@@ -1,5 +1,8 @@
+HELM_REPO := rook-release
 ROOK_OPERATOR_NAMESPACE := rook-ceph
+ROOK_OPERATOR_HELM_VALUES := values/operator.yml
 ROOK_CLUSTER_NAMESPACE := rook-ceph-cluster
+ROOK_CLUSTER_HELM_VALUES := values/cluster.yml
 
 .PHONY: help
 help: ## Show this help
@@ -7,15 +10,19 @@ help: ## Show this help
 
 .PHONY: helm-repo
 helm-repo: ## Add Rook Helm repository
-	helm repo add rook-release https://charts.rook.io/release
+	helm repo add $(HELM_REPO) https://charts.rook.io/release
 
 .PHONY: rook-operator-install
 rook-operator-install: helm-repo ## Install Rook Operator
-	helm install --create-namespace --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator.yml
+	helm install --create-namespace --namespace $(ROOK_OPERATOR_NAMESPACE) \
+		rook-ceph $(HELM_REPO)/rook-ceph \
+		-f $(ROOK_OPERATOR_HELM_VALUES)
 
 .PHONY: rook-operator-upgrade
 rook-operator-upgrade: ## Upgrade Rook Operator
-	helm upgrade --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator.yml
+	helm upgrade --namespace $(ROOK_OPERATOR_NAMESPACE) \
+		rook-ceph $(HELM_REPO)/rook-ceph \
+		-f $(ROOK_OPERATOR_HELM_VALUES)
 
 .PHONY: rook-operator-delete
 rook-operator-delete: ## Delete Rook Operator
@@ -34,18 +41,20 @@ rook-operator-delete-all: rook-operator-delete rook-operator-delete-cleanup rook
 
 .PHONY: rook-cluster-install
 rook-cluster-install: helm-repo ## Install Rook Cluster
-	helm install --create-namespace --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster.yml
+	helm install --create-namespace --namespace $(ROOK_CLUSTER_NAMESPACE) \
+		rook-ceph-cluster $(HELM_REPO)/rook-ceph-cluster \
+		--set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) \
+		-f $(ROOK_CLUSTER_HELM_VALUES)
 
 .PHONY: rook-cluster-upgrade
 rook-cluster-upgrade: ## Upgrade Rook Cluster
 	helm upgrade --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster.yml
+	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f $(ROOK_CLUSTER_HELM_VALUES)
 
 .PHONY: rook-cluster-template
 rook-cluster-template: ## Render Rook Cluster template
 	helm template --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster.yml
+	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f $(ROOK_CLUSTER_HELM_VALUES)
 
 .PHONY: rook-cluster-delete
 rook-cluster-delete: ## Delete Rook Cluster
