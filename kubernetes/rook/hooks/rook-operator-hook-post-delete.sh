@@ -3,7 +3,6 @@ set -euxo pipefail
 
 # delete namespaces
 kubectl delete ns rook-ceph || true
-kubectl delete ns rook-ceph-cluster || true
 
 DISK="/dev/sdb"
 
@@ -17,3 +16,6 @@ for NODE in $(kubectl get nodes -l 'topology.kubernetes.io/zone=rus-central-1' -
     ssh "$NODE" "sudo partprobe $DISK"
 done
 
+for CRD in $(kubectl get crd | awk '/ceph.rook.io/ {print $1}'); do
+    kubectl delete crd "$CRD"
+done

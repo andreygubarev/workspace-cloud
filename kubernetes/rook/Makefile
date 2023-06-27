@@ -30,20 +30,16 @@ rook-operator-upgrade: ## Upgrade Rook Operator
 		$(ROOK_OPERATOR_HELM_RELEASE) $(HELM_REPO)/rook-ceph \
 		-f $(ROOK_OPERATOR_HELM_VALUES)
 
-.PHONY: rook-operator-delete
-rook-operator-delete: ## Delete Rook Operator
+.PHONY: rook-operator-delete-helm
+rook-operator-delete-helm: ## Delete Rook Operator Helm
 	helm delete --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph || true
 
-.PHONY: rook-operator-delete-crds
-rook-operator-delete-crds: ## Delete Rook Operator CRDs
-	@bash scripts/rook-rook-operator-crds-cleanup.sh
+.PHONY: rook-operator-hook-post-delete
+rook-operator-hook-post-delete: ## Post-delete Rook Operator
+	@bash hooks/rook-operator-hook-post-delete.sh
 
-.PHONY: rook-operator-delete-cleanup
-rook-operator-delete-cleanup: ## Delete Rook Operator
-	@bash scripts/rook-rook-operator-cleanup.sh
-
-.PHONY: rook-operator-delete-all
-rook-operator-delete-all: rook-operator-delete rook-operator-delete-cleanup rook-operator-delete-crds ## Delete Rook Operator (all)
+.PHONY: rook-operator-delete
+rook-operator-delete: rook-operator-delete-helm rook-operator-hook-post-delete ## Delete Rook Operator
 
 ### Rook Cluster ##############################################################
 
@@ -69,17 +65,17 @@ rook-cluster-template: ## Render Rook Cluster template
 	   -f $(ROOK_CLUSTER_HELM_VALUES)
 
 .PHONY: rook-cluster-delete-helm
-rook-cluster-delete-helm: ## Delete Rook Cluster
+rook-cluster-delete-helm: ## Delete Rook Cluster Helm
 	helm delete \
 		--namespace $(ROOK_CLUSTER_NAMESPACE) \
 		$(ROOK_CLUSTER_HELM_RELEASE) || true
 
 .PHONY: rook-cluster-hook-pre-delete
-rook-cluster-hook-pre-delete:
+rook-cluster-hook-pre-delete: ## Pre-delete Rook Cluster
 	@bash hooks/rook-cluster-hook-pre-delete.sh
 
 .PHONY: rook-cluster-hook-post-delete
-rook-cluster-hook-post-delete:
+rook-cluster-hook-post-delete: ## Post-delete Rook Cluster
 	@bash hooks/rook-cluster-hook-post-delete.sh
 
 .PHONY: rook-cluster-delete
@@ -94,7 +90,7 @@ rook-install: rook-operator-install rook-cluster-install ## Install Rook
 rook-upgrade: rook-operator-upgrade rook-cluster-upgrade ## Upgrade Rook
 
 .PHONY: rook-delete
-rook-delete: rook-cluster-delete-all rook-operator-delete-all ## Delete Rook (all)
+rook-delete: rook-cluster-delete rook-operator-delete ## Delete Rook (all)
 
 ### Rook Dashboard ############################################################
 
