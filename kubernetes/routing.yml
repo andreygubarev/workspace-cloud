@@ -1,0 +1,34 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: rook
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingress
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+      - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: rook
+  namespace: istio-system
+spec:
+  hosts:
+  - "example.com"
+  gateways:
+  - istio-system/rook
+  http:
+  - name: "rook"
+    route:
+    - destination:
+        host: rook-ceph-mgr-dashboard.rook-ceph-cluster.svc.cluster.local
+        port:
+          number: 7000
