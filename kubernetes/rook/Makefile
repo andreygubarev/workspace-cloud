@@ -68,16 +68,22 @@ rook-cluster-template: ## Render Rook Cluster template
 	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) \
 	   -f $(ROOK_CLUSTER_HELM_VALUES)
 
+.PHONY: rook-cluster-delete-helm
+rook-cluster-delete-helm: ## Delete Rook Cluster
+	helm delete \
+		--namespace $(ROOK_CLUSTER_NAMESPACE) \
+		$(ROOK_CLUSTER_HELM_RELEASE) || true
+
+.PHONY: rook-cluster-hook-pre-delete
+rook-cluster-hook-pre-delete:
+	@bash hooks/rook-cluster-hook-pre-delete.sh
+
+.PHONY: rook-cluster-hook-post-delete
+rook-cluster-hook-post-delete:
+	@bash hooks/rook-cluster-hook-post-delete.sh
+
 .PHONY: rook-cluster-delete
-rook-cluster-delete: ## Delete Rook Cluster
-	helm delete --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster || true
-
-.PHONY: rook-cluster-delete-force
-rook-cluster-delete-cleanup: ## Delete Rook Cluster (cleanup)
-	@bash scripts/rook-rook-cluster-cleanup.sh
-
-.PHONY: rook-cluster-delete-all
-rook-cluster-delete-all: rook-cluster-delete rook-cluster-delete-cleanup ## Delete Rook Cluster (all)
+rook-cluster-delete: rook-cluster-hook-pre-delete rook-cluster-delete-helm rook-cluster-hook-post-delete ## Delete Rook Cluster
 
 ### Rook ######################################################################
 
