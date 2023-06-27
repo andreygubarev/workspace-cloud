@@ -21,10 +21,14 @@ install: helm-repo ## Install Istio
 	sops -d values/istiod.sops.yml | \
 	helm -n istio-system upgrade -i istiod istio/istiod --version 1.17.3 --wait -f -
 
+	kubectl create namespace istio-ingress || true
+
 	sops -d values/gateway.sops.yml | \
-	helm -n istio-system upgrade -i istio-ingress istio/gateway --version 1.17.3 --wait -f -
+	helm -n istio-ingress upgrade -i istio-ingress istio/gateway --version 1.17.3 --wait -f -
 
 .PHONY: delete
 delete: ## Delete Istio
 	helm -n istio-system delete istio-base
+	helm -n istio-system delete istiod
+	helm -n istio-inress delete istio-ingress
 	kubectl delete namespace istio-system
