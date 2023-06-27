@@ -30,6 +30,10 @@ cluster-upgrade: ## Upgrade Rook Cluster
 cluster-delete: ## Delete Rook Cluster
 	helm delete --namespace $(ROOK_NAMESPACE) rook-ceph-cluster
 
+.PHONY: cluster-delete-force
+cluster-delete-cleanup: ## Delete Rook Cluster (cleanup)
+	@bash scripts/rook-cluster-cleanup.sh
+
 .PHONY: patch-csi
 patch-csi: ## Patch CSI DaemonSet
 	kubectl -n rook-ceph patch daemonset csi-cephfsplugin --type='json' -p="$(shell cat patch-csi-daemonset.json)"
