@@ -6,7 +6,7 @@ kubectl delete ns rook-ceph || true
 
 DISK="/dev/sdb"
 
-for NODE in $(kubectl get nodes -l 'topology.kubernetes.io/zone=rus-central-1' -o name); do
+for NODE in $(kubectl get nodes -l 'rook.io/cluster=rook-ceph-cluster' -o name); do
     NODE=$(basename "$NODE")
     ssh "$NODE" "sudo rm -rf /var/lib/rook"
 
