@@ -10,9 +10,13 @@ ROOK_CLUSTER_HELM_VALUES := values/rook-cluster.yml
 help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
+### Helm ######################################################################
+
 .PHONY: helm-repo
 helm-repo: ## Add Rook Helm repository
 	helm repo add $(HELM_REPO) https://charts.rook.io/release
+
+### Rook Operator #############################################################
 
 .PHONY: rook-operator-install
 rook-operator-install: helm-repo ## Install Rook Operator
@@ -40,6 +44,8 @@ rook-operator-delete-cleanup: ## Delete Rook Operator
 
 .PHONY: rook-operator-delete-all
 rook-operator-delete-all: rook-operator-delete rook-operator-delete-cleanup rook-operator-delete-crds ## Delete Rook Operator (all)
+
+### Rook Cluster ##############################################################
 
 .PHONY: rook-cluster-install
 rook-cluster-install: helm-repo ## Install Rook Cluster
@@ -73,9 +79,19 @@ rook-cluster-delete-cleanup: ## Delete Rook Cluster (cleanup)
 .PHONY: rook-cluster-delete-all
 rook-cluster-delete-all: rook-cluster-delete rook-cluster-delete-cleanup ## Delete Rook Cluster (all)
 
-.PHONY: dashboard-password
-dashboard-password: ## Get Rook Dashboard password
-	kubectl -n $(ROOK_CLUSTER_NAMESPACE) get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode | pbcopy
+### Rook ######################################################################
+
+.PHONY: rook-install
+rook-install: rook-operator-install rook-cluster-install ## Install Rook
+
+.PHONY: rook-upgrade
+rook-upgrade: rook-operator-upgrade rook-cluster-upgrade ## Upgrade Rook
 
 .PHONY: rook-delete
 rook-delete: rook-cluster-delete-all rook-operator-delete-all ## Delete Rook (all)
+
+### Rook Dashboard ############################################################
+
+.PHONY: dashboard-password
+dashboard-password: ## Get Rook Dashboard password
+	kubectl -n $(ROOK_CLUSTER_NAMESPACE) get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode | pbcopy
