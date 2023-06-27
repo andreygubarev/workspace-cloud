@@ -1,4 +1,5 @@
-ROOK_NAMESPACE := rook-ceph
+ROOK_OPERATOR_NAMESPACE := rook-ceph-system
+ROOK_CLUSTER_NAMESPACE := rook-ceph
 
 .PHONY: help
 help: ## Show this help
@@ -10,25 +11,33 @@ helm-repo: ## Add Rook Helm repository
 
 .PHONY: operator-install
 operator-install: helm-repo ## Install Rook Operator
-	helm install --create-namespace --namespace $(ROOK_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator-overrides.yml
+	helm install --create-namespace --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator-overrides.yml
 
 .PHONY: operator-upgrade
 operator-upgrade: ## Upgrade Rook Operator
-	helm upgrade --namespace $(ROOK_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator-overrides.yml
+	helm upgrade --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph rook-release/rook-ceph -f values-operator-overrides.yml
+
+.PHONY: operator-delete
+operator-delete: ## Delete Rook Operator
+	helm delete --namespace $(ROOK_OPERATOR_NAMESPACE) rook-ceph
+
+.PHONY: operator-delete-cleanup
+operator-delete: ## Delete Rook Operator
+	@bash scripts/rook-operator-cleanup.sh
 
 .PHONY: cluster-install
 cluster-install: helm-repo ## Install Rook Cluster
-	helm install --create-namespace --namespace $(ROOK_NAMESPACE) rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster-overrides.yml
+	helm install --create-namespace --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster \
+	   --set operatorNamespace=$(ROOK_CLUSTER_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster-overrides.yml
 
 .PHONY: cluster-upgrade
 cluster-upgrade: ## Upgrade Rook Cluster
-	helm upgrade --namespace $(ROOK_NAMESPACE) rook-ceph-cluster \
-	   --set operatorNamespace=$(ROOK_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster-overrides.yml
+	helm upgrade --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster \
+	   --set operatorNamespace=$(ROOK_OPERATOR_NAMESPACE) rook-release/rook-ceph-cluster -f values-cluster-overrides.yml
 
 .PHONY: cluster-delete
 cluster-delete: ## Delete Rook Cluster
-	helm delete --namespace $(ROOK_NAMESPACE) rook-ceph-cluster
+	helm delete --namespace $(ROOK_CLUSTER_NAMESPACE) rook-ceph-cluster
 
 .PHONY: cluster-delete-force
 cluster-delete-cleanup: ## Delete Rook Cluster (cleanup)
@@ -36,9 +45,9 @@ cluster-delete-cleanup: ## Delete Rook Cluster (cleanup)
 
 .PHONY: patch-csi
 patch-csi: ## Patch CSI DaemonSet
-	kubectl -n rook-ceph patch daemonset csi-cephfsplugin --type='json' -p="$(shell cat patch-csi-daemonset.json)"
-	kubectl -n rook-ceph patch daemonset csi-rbdplugin --type='json' -p="$(shell cat patch-csi-daemonset.json)"
+	kubectl -n $(ROOK_CLUSTER_NAMESPACE) patch daemonset csi-cephfsplugin --type='json' -p="$(shell cat patch-csi-daemonset.json)"
+	kubectl -n $(ROOK_CLUSTER_NAMESPACE) patch daemonset csi-rbdplugin --type='json' -p="$(shell cat patch-csi-daemonset.json)"
 
 .PHONY: dashboard-password
 dashboard-password: ## Get Rook Dashboard password
-	kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode | pbcopy
+	kubectl -n $(ROOK_CLUSTER_NAMESPACE) get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode | pbcopy
