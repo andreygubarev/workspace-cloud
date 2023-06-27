@@ -1,10 +1,10 @@
 HELM_REPO := rook-release
 ROOK_OPERATOR_NAMESPACE := rook-ceph
 ROOK_OPERATOR_HELM_RELEASE := rook-ceph
-ROOK_OPERATOR_HELM_VALUES := values/operator.yml
+ROOK_OPERATOR_HELM_VALUES := values/rook-operator.yml
 ROOK_CLUSTER_NAMESPACE := rook-ceph-cluster
 ROOK_CLUSTER_HELM_RELEASE := rook-ceph-cluster
-ROOK_CLUSTER_HELM_VALUES := values/cluster.yml
+ROOK_CLUSTER_HELM_VALUES := values/rook-cluster.yml
 
 .PHONY: help
 help: ## Show this help
