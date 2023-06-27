@@ -13,7 +13,7 @@ fi
 
 for NODE in $(kubectl get nodes -l 'rook.io/cluster=rook-ceph-cluster' -o name); do
     NODE=$(basename "$NODE")
-    ssh "$NODE" "sudo rm -rf /var/lib/rook/rook-ceph"
+    ssh "$NODE" "sudo rm -rf /home/rook/rook/rook-ceph"
 done
 
 kubectl delete ns "$NS"
