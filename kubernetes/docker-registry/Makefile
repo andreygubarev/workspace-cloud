@@ -1,6 +1,7 @@
 HELM_REPO := twuni
 NAMESPACE := docker-registry
-HELM_RELEASE := docker-registry
+HELM_CHART_RELEASE := docker-registry
+HELM_CHART_VERSION := 2.2.2
 HELM_VALUES := values.sops.yml
 
 .PHONY: help
@@ -19,9 +20,9 @@ helm-repo: ## Add Rook Helm repository
 install: helm-repo ## Install Docker Registry
 	sops -d $(HELM_VALUES) | \
 	helm upgrade --install --create-namespace --namespace $(NAMESPACE) \
-		$(HELM_RELEASE) $(HELM_REPO)/docker-registry -f -
+		$(HELM_CHART_RELEASE) $(HELM_REPO)/docker-registry --version $(HELM_CHART_VERSION) -f -
 
 .PHONY: delete
 delete: ## Delete Docker Registry
-	helm delete --namespace $(NAMESPACE) $(HELM_RELEASE) || true
+	helm delete --namespace $(NAMESPACE) $(HELM_CHART_RELEASE) || true
 	@bash hooks/post-delete.sh
