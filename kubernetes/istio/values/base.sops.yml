@@ -1,0 +1,35 @@
+global:
+    istioNamespace: ENC[AES256_GCM,data:H7XDLuYCuxAKSDcq,iv:OBfPIXOn5qsp8DdaYdd+bImnfGSD+JFWjJLi2+qcuKo=,tag:edqPZQo1x7W/vqgR7Npj/A==,type:str]
+    istiod:
+        enableAnalysis: ENC[AES256_GCM,data:isTjimQ=,iv:ceQX+wCWV4IJAzVZJ+Dc+rQyFPj36kr0iP0ZNXrBP5Q=,tag:JMwoe3sRAhPjcn6PrRp2Jg==,type:bool]
+    imagePullSecrets: []
+    configValidation: ENC[AES256_GCM,data:GQsOAg==,iv:IIFdvTb6mB3+xm2QYTCjY7KYl/K6kF0Q4LmiH96lp0Y=,tag:jSvZu/VOxHL8DPpnLDxWUQ==,type:bool]
+    externalIstiod: ENC[AES256_GCM,data:rV8YEPg=,iv:GaXG6yGmBQkMVTpzZqnczWDnWDlvcPRp3GABs9S8zzk=,tag:LQbGHzQOaXdXFCFJYqarQA==,type:bool]
+    remotePilotAddress: ""
+base:
+    enableCRDTemplates: ENC[AES256_GCM,data:dzXkHG4=,iv:HYBG7Awan0daJ9lpxo8C4d85EG1PQHeWmbLeAQnp3Nk=,tag:qkAYlS1YUMIeWvvkefj/gA==,type:bool]
+    validationURL: ""
+    enableIstioConfigCRDs: ENC[AES256_GCM,data:/6NitQ==,iv:7zI74ieCFBkuWWzj9TrFvvLzXzcl6tiBoAONJbB9TAs=,tag:2qv9Un0Vd/4gAzBPYd+yeA==,type:bool]
+defaultRevision: ENC[AES256_GCM,data:fEDY89DjqA==,iv:eNVdhTaJKWxwod8Nvt5F/f8hcfw1mIo5fWi0CjD7zj0=,tag:LIYzlA8xrnqS1HyyKKnoIg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-27T15:45:56Z"
+    mac: ENC[AES256_GCM,data:8Hp/zRyYKzCF++1qyidXySCZyFmAHq2zzRa+yjqXFkmdk35rf2UiPS/9+Tl1VJcBKmWBU4YLcN29fUrS1HYkXY1lY0XsUUws7B50mj3yeVLLZW5GqUtlLSYrfkbpqRmHOmPoM1EVXGEAjTGSyL6X8G2d0csi2NKPF0QaNNqoJSs=,iv:zuOw6POsMxk0aKjF3HDENucJC/1BnawR7CLSK9UJLVA=,tag:u50vL2omULx1cb4MMTU40g==,type:str]
+    pgp:
+        - created_at: "2023-06-27T15:45:55Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdAE6HIR/t3bTyUGorz7fTSzJncl9baUxMOVaxXiidDoTMw
+            9ANTWbdOjtHf5Ppb0dlDwP12jgKiJGVrbfwBqnlJpxviJM/R9x9DzOSYAxfNGyJF
+            0lwBSHTK1zIUeIzae4W+dLw9ueUQ+9cyIhnZquBGok/tmQjleH8uFSSP3M4CYFQu
+            d4wRAEmUpxg8j8eh2xGje7VgcqD6d27kSa9YP+KA2vfOvZPWC178VlrBsEWIZQ==
+            =Lc9m
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
