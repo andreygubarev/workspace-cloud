@@ -3,6 +3,9 @@ kind: ENC[AES256_GCM,data:fsxHoFimDu5zNVySN+8=,iv:8w4WnzIuyWYYKXkf2XQy9J96ItiTDh
 metadata:
     name: ENC[AES256_GCM,data:i/FJlDsIJySYX3v91U3t,iv:jn9fZo8JMOgUfmnZy9IaIbSKyQR17l69S9RlLq2f1cM=,tag:kVQeoTeEiZIOiGmt2jodPw==,type:str]
     namespace: ENC[AES256_GCM,data:0nwVZCZFrqoi4MFh+ej2,iv:S4NAoll2zbg4cNKRtshslvF2x/wVAUiTtIqK4gIBTH4=,tag:udeGwRaTUhXAOg94bl7vTA==,type:str]
+    annotations:
+        external-dns.alpha.kubernetes.io/target: ENC[AES256_GCM,data:h7T/GX1Xl0H23/jIvz6oDHAKJw==,iv:SeHfVyNvb/wHjRB7usq1r1ifqEpNKWvUe8Vyld+zbSY=,tag:7sXKgroznhMH4Wj73ZGyCw==,type:str]
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: ENC[AES256_GCM,data:TZzHqg==,iv:rCzLnXoziuCsraIfw6esCou6a8/5h+i857lK6gWSsJA=,tag:HIpKNQIzz6qYJGFR+K3TrA==,type:str]
 spec:
     gateways:
         - ENC[AES256_GCM,data:MKjTWahHyqitH3QQR9Tkhkn/NkrdyFMa528nCw==,iv:at/+Q6leuGLhnDlpno+nxLFCWYn0j98UDS3ESfMToRc=,tag:TbKSkSIvmzlF0mAOf/w1EA==,type:str]
@@ -12,14 +15,16 @@ spec:
         - route:
             - destination:
                 host: ENC[AES256_GCM,data:XBH5xuuHry0UY8YgGM/RpR3DT5ADOu2E8EagUvLSY6CW/hCNgrHPZhFQvfWkwljf4Q==,iv:SDbLa45Dg4giODpsdOT9Ed8ylG+BTICO+a0Ev3vsD88=,tag:KRfv3vPuramqAZHgN9xblg==,type:str]
+                port:
+                    number: ENC[AES256_GCM,data:0Lad5A==,iv:rvnIRmTrmJW+AiO1Ie1qpvDIepsG0S7/9d2B77X5Bds=,tag:53F30yoGsue9M3mcEZrr9A==,type:int]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-28T08:30:06Z"
-    mac: ENC[AES256_GCM,data:jYelH0ygSlAViQrksJIDVElCPxA6s57vxcEL/EV4v75rU2DZU77fGG3O8onskhhsKyxXq3YrUdraiz1UXcU8wPjUH9mS8op2iqOX+YWdqJdBKwq5N7GZ39RQShjg+k3B4JACAdtLb/B3Im9hYHX6eRXa2qxROtuXH9icR1qsKtc=,iv:pRmdV9ROZxV3nSk7g3c/F+K+HtnqRTTOiF50fTzmoDo=,tag:1XESrI+J2Z4kYeD2FKtjMA==,type:str]
+    lastmodified: "2023-06-28T09:16:13Z"
+    mac: ENC[AES256_GCM,data:bNSqvaAp6APGVxoLNaM0Sl1KM/Y96MarvEX7Yw+OUxApNK50gT2zEj+cV4cUUi3aBh+4yC7dqwKBGIMrNa4931Ouaa/1pR8RAtS9U+lVEC2ABKQLrBCkgUcAlXttACFbDrHFtw3n9WPn/r1IN5kAouElD1ESZZmleKUj6DYF1hY=,iv:Nt57IyF39zjExgo71H7zR+EnIO055iIIOWVqQYAWkm4=,tag:MXRMObJdU7zTVsutcHbpdw==,type:str]
     pgp:
         - created_at: "2023-06-28T08:30:06Z"
           enc: |

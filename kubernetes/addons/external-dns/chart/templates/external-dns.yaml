@@ -60,14 +60,7 @@ spec:
       - name: external-dns
         image: registry.k8s.io/external-dns/external-dns:v0.13.5
         args:
-        - --source=gateway-grpcroute
-        - --source=gateway-httproute
-        - --source=gateway-tcproute
-        - --source=gateway-tlsroute
-        - --source=gateway-udproute
-        - --source=istio-gateway
         - --source=istio-virtualservice
-        - --source=service
         - --registry=txt
         - --txt-owner-id=external-dns
         - --provider=cloudflare

@@ -1,0 +1,41 @@
+apiVersion: ENC[AES256_GCM,data:cHJ0wMo9T/HNhzeE4g1ssDv/3xnEnjhvb0vP,iv:BjHFpwzg+uEd/p9TPL7vyZQPKlp2Dt33taJ2+oFUw/A=,tag:TAAZkFFVq899/jc5vbKN2g==,type:str]
+kind: ENC[AES256_GCM,data:j2nwcjjbHTP7O4L/XMk=,iv:sYtmeji4HuS9S3Z2uProvfNeQUKHLjETPH3Wcvg7jLI=,tag:jSwKeJD9ov4Ksqh7qjPRSQ==,type:str]
+metadata:
+    name: ENC[AES256_GCM,data:UoDq28nasK9V,iv:cpbCXIGhlgCjf2N8zHRzKZ0Ge+NM/fxynAITei2zeK8=,tag:hYvipEhoqMXUGbtlpAL20A==,type:str]
+    namespace: ENC[AES256_GCM,data:lkzn5rjyD2BhXj+FeWG0AOY=,iv:DReq7NfGg8imLtAZRSLBYxuOaC146onH3VO8x+tdJ4E=,tag:osmaovts5pYTLEboGEHAVA==,type:str]
+    annotations:
+        external-dns.alpha.kubernetes.io/target: ENC[AES256_GCM,data:7leyjs+4/ZFHQYyWwPVQ5c6ldA==,iv:nD8rEOl+r4beyozE8MoH8qGHHoxqBs+oYB2vtRJ6BSA=,tag:XA0UMWykBml2jFrsvkuGzg==,type:str]
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: ENC[AES256_GCM,data:eZAaOg==,iv:fMPoy0gliDA72/c5zYeRG+FvQJzRqnuz+ZaOwetSKEU=,tag:QnY1UWXECwKF2eShb7yU8w==,type:str]
+spec:
+    gateways:
+        - ENC[AES256_GCM,data:rSaptejn2R6WLvL7vDVnN6ivQ6s04ElgVx76Ug==,iv:rnWsu65uHNd4sm4RlEse5sb5gr6FDPb5vbah1y68HiQ=,tag:a+NQTBbmux6tF0OC4fqbiA==,type:str]
+    hosts:
+        - ENC[AES256_GCM,data:6ag4OJeY+gAwckaD67YVZ1QjAm4rz+td,iv:4PmdtlJc9EvKVaNNn1Oc2LOWy4ZqQDP8eDCq+ip5dNE=,tag:tQr9ND4pDYFVekhzR0G1Zw==,type:str]
+    http:
+        - route:
+            - destination:
+                host: ENC[AES256_GCM,data:9kfU7/WdiU/pTyuv0bl6/ZIJb9vCYbnnH2fnYfaPSwlt5xq2GgeXS/FnoapYUFSmGZa68dPyDdpa3ic=,iv:4mB8gvwdJUJyEFIixxEUsuw48F7z2OoU2HXffKTD1z0=,tag:ckVvyCymxc1PLNvkutLmjQ==,type:str]
+                port:
+                    number: ENC[AES256_GCM,data:zFlANg==,iv:E5mvqoGQfM2vmOH9ghPLJC2fTNhFMEGkxkiWwnGr5+0=,tag:XsxifUiFvWJcB/x4B663KA==,type:int]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-28T09:16:20Z"
+    mac: ENC[AES256_GCM,data:7i89Sd6Wz59ywXacaSzfLnvGvewNzpIZ+dhrHHNa9Ul36UUpELK1IKFBHnuku0rjM4ImLtj1tx3OD/3BKglPlM5ta7iWjTBvNu1RQM5VVDEV8tP90Ul72ht0H4DRJpvonFjrzJhIRICxYv0Nek3dKgP2SvzZKkTYc/1xQvhnvSg=,iv:a7SF1R98qnwZG2emaAmeXOeIwrqyLQ2n9Rj6O35GZdU=,tag:tgE7CQS1hJTDqwm/2Ble3w==,type:str]
+    pgp:
+        - created_at: "2023-06-28T08:58:27Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdAxlfsZWvuvAbKPH2oLj6M4UJwkIvjeVwBhRW+NEVwDVgw
+            01FVNd06onXunVaK/kViN7nWF2/hxcs7Dp/60g32GODbGbmnlqPHbxBDpOBnTpQo
+            0l4BSxLokrOSWOm1fcVsuJ1Gna/gmcC/OaVsvK5VRvgdaMs9NfJH0As7s58sHlw4
+            6muJMvF5cFjZs4qKQH45gTaWn72MtRjHBHuxfAolGjwcpZVzoFD36iAuteaxh/xG
+            =PJnA
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
