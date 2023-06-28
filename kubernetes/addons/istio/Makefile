@@ -12,8 +12,6 @@ helm-repo: ## Add Istio Helm repository
 
 .PHONY: install
 install: helm-repo ## Install Istio
-	kustomize build gateway | kubectl apply -f -
-
 	kubectl create namespace istio-system || true
 	kubectl create namespace istio-ingress || true
 
@@ -24,10 +22,13 @@ install: helm-repo ## Install Istio
 	sops -d values/istiod.sops.yml | \
 	helm -n istio-system upgrade -i istiod istio/istiod --version 1.18.0 --wait -f -
 
+	sops -d values/gateway.sops.yml | \
+	helm -n istio-ingress upgrade -i istio-ingress istio/gateway --version 1.18.0 --wait -f -
+
 .PHONY: delete
 delete: ## Delete Istio
 	helm -n istio-system delete istio-base || true
 	helm -n istio-system delete istiod || true
+	helm -n istio-ingress delete istio-ingress || true
 	kubectl delete namespace istio-system || true
 	kubectl delete namespace istio-ingress || true
-	kustomize build gateway | kubectl delete -f -

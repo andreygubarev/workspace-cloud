@@ -30,8 +30,7 @@ serviceAccount:
 enableCertificateOwnerRef: ENC[AES256_GCM,data:hjK6f+I=,iv:LMvR1iMyFjDRB5JaqTnwOeqR/ELtjtxEkUbx1dDbNJI=,tag:gqXtOSot3ahg0rWGHwCD+g==,type:bool]
 dns01RecursiveNameservers: ""
 dns01RecursiveNameserversOnly: ENC[AES256_GCM,data:K4K++F0=,iv:D+kqCvFGgnuKfYR98SROFinJS9aWd81m0Ia8/2in4Mo=,tag:GCvRLcT96hihSMds0Q+blw==,type:bool]
-extraArgs:
-    - ENC[AES256_GCM,data:LWoXA/XWrH2hMrX8uKS85JdvmY1GwElXdC5OdNmF0tbHcRPUUoEE6f1A745D5KAnUvc=,iv:FPyk0S1NFgL45z/hbu+iupgTdN+XcVLpyKghWxFQ0XM=,tag:03S/lTQPoiKp4jfE2HZd5w==,type:str]
+extraArgs: []
 extraEnv: []
 resources: {}
 securityContext:
@@ -228,8 +227,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2023-06-27T22:14:39Z"
-    mac: ENC[AES256_GCM,data:29GQY69Vdk0RaOKBxDBXMZdkEm6bkGBW4ARuX/KYQKZJfXEZSCgU7T4QoEyFU27OkWJM/7cF6S1KpX0CjAckuoaUrGqazecGmj+xQT4K5XhZftPnpWUObfxsMKC3A1NJ3hTyUqxYYoOTNe96qTv7qz8TUHAzJImAhkO+xXYVB+k=,iv:AVV49JvqzHX7AtefjnLkKcxYrJwK82TGGl+KNJ8p2vg=,tag:078shLbBUOxXxN7oJOl3gA==,type:str]
+    lastmodified: "2023-06-28T07:51:49Z"
+    mac: ENC[AES256_GCM,data:kOf6P26wxlOCnLQdAgLUFLvOWepZnDv2o09KVKT0rQnlxo/+m/7f3qOhWePJyhuLBdbQkfrJbDsfkgbMq7lqncffv4HE+nT/GFddpU3/sPq5LMZDezKtF1TnUWVUOUDxEwhmRMgbDv5083D4QFVfOOG7vJ8QrVj6ZJ8DWaZxj/Y=,iv:61df3sXq8w4M3HKwRRw5u4bkZYLDT3YytKQFxEE9nBs=,tag:ziiNQuhVJ183EOWTbMxkXQ==,type:str]
     pgp:
         - created_at: "2023-06-27T17:24:50Z"
           enc: |

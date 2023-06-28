@@ -1,0 +1,36 @@
+apiVersion: ENC[AES256_GCM,data:5yy1+bChvpkhaYIPzVXyuUn2wqD6qP9OpDsf,iv:4dcq5iOciM2oPcPUuwXpGut0VlPBJqG/ns8hqJHkY6w=,tag:dq1Go7t6bhTWf6h163cxGg==,type:str]
+kind: ENC[AES256_GCM,data:fsxHoFimDu5zNVySN+8=,iv:8w4WnzIuyWYYKXkf2XQy9J96ItiTDhEpWueoHFmWWDc=,tag:fw0GMhk2xwuH7CcpPv6O5g==,type:str]
+metadata:
+    name: ENC[AES256_GCM,data:i/FJlDsIJySYX3v91U3t,iv:jn9fZo8JMOgUfmnZy9IaIbSKyQR17l69S9RlLq2f1cM=,tag:kVQeoTeEiZIOiGmt2jodPw==,type:str]
+    namespace: ENC[AES256_GCM,data:0nwVZCZFrqoi4MFh+ej2,iv:S4NAoll2zbg4cNKRtshslvF2x/wVAUiTtIqK4gIBTH4=,tag:udeGwRaTUhXAOg94bl7vTA==,type:str]
+spec:
+    gateways:
+        - ENC[AES256_GCM,data:MKjTWahHyqitH3QQR9Tkhkn/NkrdyFMa528nCw==,iv:at/+Q6leuGLhnDlpno+nxLFCWYn0j98UDS3ESfMToRc=,tag:TbKSkSIvmzlF0mAOf/w1EA==,type:str]
+    hosts:
+        - ENC[AES256_GCM,data:qUqQJY7istKtwfTCSZxr1/dNqXngxKi9HyA=,iv:V0xxoTzGNFXtmD9OFR9THDVc/ky+emdm27P7vdDpZt8=,tag:kGhM9LkQJ+fC5g3T2Rhqng==,type:str]
+    http:
+        - route:
+            - destination:
+                host: ENC[AES256_GCM,data:XBH5xuuHry0UY8YgGM/RpR3DT5ADOu2E8EagUvLSY6CW/hCNgrHPZhFQvfWkwljf4Q==,iv:SDbLa45Dg4giODpsdOT9Ed8ylG+BTICO+a0Ev3vsD88=,tag:KRfv3vPuramqAZHgN9xblg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-28T08:30:06Z"
+    mac: ENC[AES256_GCM,data:jYelH0ygSlAViQrksJIDVElCPxA6s57vxcEL/EV4v75rU2DZU77fGG3O8onskhhsKyxXq3YrUdraiz1UXcU8wPjUH9mS8op2iqOX+YWdqJdBKwq5N7GZ39RQShjg+k3B4JACAdtLb/B3Im9hYHX6eRXa2qxROtuXH9icR1qsKtc=,iv:pRmdV9ROZxV3nSk7g3c/F+K+HtnqRTTOiF50fTzmoDo=,tag:1XESrI+J2Z4kYeD2FKtjMA==,type:str]
+    pgp:
+        - created_at: "2023-06-28T08:30:06Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdAgme4i9YqJtJNo3DbFymndDiCWUFemRIrj4d+u3fPOXgw
+            e9gH9qG2XPzyYu1QbCWtzPHNQplzD/o+DnrbkztEcHzL8IMbJ36ns/DtQQEWhs9G
+            0l4Bf4cBR/DqhocUrWHDXKbbs+RlPqNJOlyA52Rvdf3fRwxRQhWF7v3O6dcdZlVv
+            8FlkuUYWA/87uPvmWALhS9nqe1W/9hyLAyaG/j1n3437KzypyJ/NQTY9JWwFX/9f
+            =N/9Y
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
