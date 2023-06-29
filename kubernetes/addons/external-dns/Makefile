@@ -9,7 +9,11 @@ install: ## Install external-dns
 	sops -d values.sops.yml | \
 	helm -n external-dns upgrade -i external-dns ./chart --wait -f -
 
+	sops -d values.hiddenservice.sops.yml | \
+	helm -n external-dns upgrade -i hiddenservice ./chart --wait -f -
+
 .PHONY: uninstall
 uninstall: ## Uninstall external-dns
 	helm -n external-dns delete external-dns
+	helm -n external-dns delete hiddenservice
 	kubectl delete namespace external-dns

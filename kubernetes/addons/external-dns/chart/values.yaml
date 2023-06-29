@@ -3,3 +3,8 @@ cloudflare:
     token:
     domain:
     zone:
+
+externaldns:
+    serviceaccount: true
+    clusterrole: true
+    clusterrolebinding: true

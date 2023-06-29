@@ -1,8 +1,12 @@
+{{- if .Values.externaldns.serviceaccount }}
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: external-dns
   namespace: external-dns
+{{- end }}
+{{ if .Values.externaldns.clusterrole }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -21,9 +25,8 @@ rules:
 - apiGroups: ["networking.istio.io"]
   resources: ["gateways", "virtualservices"]
   verbs: ["get","watch","list"]
-- apiGroups: ["gateway.networking.k8s.io"]
-  resources: ["gateways","httproutes","grpcroutes","tlsroutes","tcproutes","udproutes"]
-  verbs: ["get","watch","list"]
+{{- end }}
+{{ if .Values.externaldns.clusterrolebinding }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -37,11 +40,12 @@ subjects:
 - kind: ServiceAccount
   name: external-dns
   namespace: external-dns
+{{- end }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: external-dns
+  name: external-dns-{{ .Release.Name }}
   namespace: external-dns
 spec:
   replicas: 1

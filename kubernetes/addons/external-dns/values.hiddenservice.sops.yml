@@ -1,0 +1,31 @@
+cloudflare:
+    email: ENC[AES256_GCM,data:e6iw7BgBicXbOhSBlZReikiZ4uYRKG0egQ==,iv:SfF4dsq14gvIvcnHvE4zBc2g5c6EM0Gqp+deYrKXKzg=,tag:WnFwDPelK+IQCqcnHmYJnQ==,type:str]
+    token: ENC[AES256_GCM,data:tKUnpKvHsUAPxGxkAoPacrjk33i5icYKRloR7tBOreVUjfWasw==,iv:slYMoHJEhupEy5HhfL3SSifOD1zjuoAOMGpvwWH5CkE=,tag:X39HOsLGL3Kl+cSyp+pRYA==,type:str]
+    domain: ENC[AES256_GCM,data:H2tMsZMd/cqGR2/5pxDu,iv:LK15fU2uH9IKwjCLkSo0mZ+oIzyXFVboSEe/PlrnF9A=,tag:ieUc5l6DMD5p98FJPlga/w==,type:str]
+    zone: ENC[AES256_GCM,data:HPE+vTowIHctA0s6CgU9tzFukzjmJL/HljyhmVqcfe8=,iv:4/cw8Jk4wh0tKDGn7VfJkwJPJzKJGNX8lXnkx++8/wY=,tag:zz2DJ8kuWopJUg6cBLjXJw==,type:str]
+externaldns:
+    serviceaccount: ENC[AES256_GCM,data:OE68AJo=,iv:P5uOXqVDb914Qxj191kV897n0R/UjdcQy6hhJC+JYoE=,tag:43flxARTTUNLFdP4O8HUhw==,type:bool]
+    clusterrole: ENC[AES256_GCM,data:8dG4Jx0=,iv:TE8XAtsbP4GHE9zA+ttw8Eby539/tFr70EQQ8KaSsbw=,tag:kZelIKx15u7jOr7G2CTOBg==,type:bool]
+    clusterrolebinding: ENC[AES256_GCM,data:WvVChsg=,iv:mewcbFIJ+FGmuEojpdGsaed88+VmejwlJCec3CowY9o=,tag:xHuO+TesxqKZi7PASnlQxg==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-06-29T19:08:23Z"
+    mac: ENC[AES256_GCM,data:gNhReLjSFJMoATpVt+6WD9+9PsgdbcbMwsIZtMUb6lJivuiBHYtcyrLzTS9AUAjLu0n5MYNMpvCTvE2DAEzv6EgpkF/cwyRDxrXyReOkLA0AmpC27xOk8VFCTuinDa+DcwtQpBvcrAuXxoko+12aJrbk8g3rxxzJkPchKdfT6aQ=,iv:VR1HI5WRwDbfvZJXgArgdYtpuZXXgl9Ym20lByYBaHY=,tag:Ag+sfEjD2h1Cxytb/FgqQw==,type:str]
+    pgp:
+        - created_at: "2023-06-29T19:08:21Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgVp2h0rFsTMSAQdANXu8S3/i8jE38SvJ5AGwFoYufCs16NU2u4T5Vu576H0w
+            FztBWJxArXxZX8GmF6Q7IO9SoFx7t6xnOiapd+8Mj3YFa5CWyGCX+dszvnvw5DhR
+            0l4BNZDJMWG8zrG/l/s7bliefhS5pnj/ockyQnCDlb0FQEklbJ6lv/THpaH0GYUs
+            41katpmflcOk5yfLM+b7UCPjEaD4OsH3I/XcfQSFcjF5lvKIDfup8oytkFllbYEq
+            =pjyi
+            -----END PGP MESSAGE-----
+          fp: E00A62ADD038B3EA078EC06758E213AF974958D7
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
