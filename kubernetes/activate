@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-KUBECONFIG=$(mktemp)
-sops -d kubeconfig.sops.yml > "$KUBECONFIG"
-export KUBECONFIG
