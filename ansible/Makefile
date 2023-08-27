@@ -24,7 +24,7 @@ install: $(PYTHON_VENV) ## Build Python package
 	$(ANSIBLE_GALAXY) install -r requirements.yml
 
 .PHONY: format
-format: build ## Automatically format the source code
+format: install ## Automatically format the source code
 	@$(ANSIBLE_LINT) -v
 
 .PHONY: clean
