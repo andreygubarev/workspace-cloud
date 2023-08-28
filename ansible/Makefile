@@ -7,21 +7,10 @@ help: ## Brief overview of available targets and their descriptions
 
 ### Python ####################################################################
 PYTHON_VENV ?= $(MAKEFILE_DIR)/.venv
-PYTHON_BIN := $(PYTHON_VENV)/bin/python3
-PYTHON_PIP := $(PYTHON_BIN) -m pip
-
-$(PYTHON_VENV):
-	$(shell brew --prefix python@3.10)/bin/python3.10 -m venv $(PYTHON_VENV)
-	$(PYTHON_PIP) install 'setuptools>=45.0.0' wheel
-	$(PYTHON_PIP) install -r requirements.txt
 
 ### Ansible ###################################################################
 ANSIBLE_LINT := ansible-lint
 ANSIBLE_GALAXY := ansible-galaxy
-
-.PHONY: install
-install: $(PYTHON_VENV) ## Build Python package
-	$(ANSIBLE_GALAXY) install -r requirements.yml
 
 .PHONY: format
 format: install ## Automatically format the source code
@@ -29,4 +18,4 @@ format: install ## Automatically format the source code
 
 .PHONY: clean
 clean: ## Remove temporary files
-	rm -rf $(PYTHON_VENV) *.tar.gz
+	rm -rf $(PYTHON_VENV) .cache *.tar.gz

@@ -1,7 +1,0 @@
-molecule>=5.0.0,<6.0.0
-molecule-qemu
-pytest-testinfra>=8.0.0,<9.0.0
-
-ansible>=7.0.0
-ansible-lint
-dnspython==2.3.0
